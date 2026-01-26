@@ -4,7 +4,7 @@ cms_exclude: true
 
 # View.
 view: article-grid
-columns: 2
+columns: 3
 
 # Optional header image (relative to `static/media/` folder).
 banner:
