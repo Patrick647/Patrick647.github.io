@@ -1,12 +1,13 @@
 ---
-title: Pharmacist Competency Evaluation for Primary Healthcare
-summary: Constructing a competency evaluation framework for primary healthcare pharmacists using Delphi methodology.
+title: "Pharmacist Competency Evaluation for Primary Healthcare Institutions"
+summary: "Designed and led a multi-institutional research project to construct a competency evaluation framework for primary healthcare pharmacists using Delphi methodology with 52 experts across three consultation rounds."
 tags:
+  - Delphi Method
   - Health Services Research
   - Pharmacist Development
-date: '2025-01-01T00:00:00Z'
+date: '2025-01-01'
+date_end: '2025-12-01'
 
-# Optional external URL for project (replaces project detail page).
 external_link: ''
 
 image:
@@ -23,18 +24,17 @@ url_video: ''
 
 ## Overview
 
+**Duration**: January 2025 – December 2025
+
 **Role**: Principal Investigator
-**Period**: January 2025 – December 2025
 
-This multi-institutional research project constructs a competency evaluation framework for primary healthcare pharmacists, addressing the gap in existing models that focus primarily on tertiary hospitals.
+## Highlights
 
-## Key Achievements
-
-- **Independence & Critical Thinking**: Designed and led the research project
-- **Data Analysis**: Conducted three rounds of Delphi consultations with 52 experts (84.6% senior titles, 78.9% with 20+ years experience)
-- **100% response rate** with authority coefficients of 0.886–0.934
-- **First author publication** in *Pharmaceutical and Clinical Research* (June 2025)
+- Conducted three rounds of Delphi consultations with 52 experts (84.6% senior titles, 78.9% with 20+ years experience)
+- Achieved 100% response rate and authority coefficients of 0.886–0.934
+- Constructed evaluation framework with 4 primary indicators and 22 secondary indicators
+- Published findings as first author in *Pharmaceutical and Clinical Research*
 
 ## Impact
 
-Contributing the first localized pharmacist competency model for Wuxi's primary healthcare system.
+This project contributed the first localized pharmacist competency model for Wuxi's primary healthcare system, addressing the gap in existing models that focus primarily on tertiary hospitals.

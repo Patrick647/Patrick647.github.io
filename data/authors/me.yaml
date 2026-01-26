@@ -15,11 +15,11 @@ status:
   icon: "💊"
 role: Pharmacist | Researcher | Health Communication Specialist
 bio: |
-  Clinical Pharmacist specializing in pharmacogenomics and therapeutic drug monitoring.
-  Currently serving as a Clinical Trial Quality Assurance Officer at Jiangnan University
-  Affiliated Maternity and Child Healthcare Hospital. Committed to bridging the gap
-  between pharmaceutical science and public health through innovative communication
-  strategies and evidence-based policy research.
+  Clinical Pharmacist specializing in pharmacy practice and health services research. Currently serving as a Clinical Trial Quality Assurance Officer at Wuxi Maternity and Child Health Care Hospital (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), and Committee Member & Executive Secretary of the Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association.
+
+  My research focuses on pharmacist competency development, drug information visualization, and patient-centered pharmaceutical care. I led the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed over 150 visualized medication instruction videos benefiting 850,000+ patients. This work contributed to the establishment of the first batch of Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" in April 2024.
+
+  Committed to bridging the gap between pharmaceutical science and public health through innovative communication strategies and evidence-based policy research.
 
 affiliations:
   - name: Wuxi Maternity and Child Health Care Hospital
@@ -39,11 +39,12 @@ links:
     url: https://orcid.org/
 
 interests:
+  - Pharmacy Practice & Health Services Research
   - Pharmacist Competency Development
   - Drug Information Visualization
   - Patient-centered Pharmaceutical Care
   - Pharmacogenomics
-  - Health Communication
+  - Health Communication & Science Popularization
 
 education:
   - degree: MSc Clinical Pharmacology
@@ -58,18 +59,17 @@ education:
     start: 2019-03-01
     end: 2022-01-31
     summary: |
-      Courses: Physiology, Pathophysiology, Biochemistry, Microbiology, Pharmacology, Pharmacy.
+      Courses: Physiology, Pathophysiology, Biochemistry, Microbiology, Natural Pharmacochemistry, Medicinal Chemistry, Pharmaceutical Analysis, Pharmacology, Pharmacy.
 
 experience:
   - role: Pharmacist & Clinical Trial QA Officer
     org: Wuxi Maternity and Child Health Care Hospital
     start: 2018-07-01
     summary: |
-      Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center,
-      ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
-      Previously managed therapeutic drug monitoring services.
+      Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
+      Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
   - role: Committee Member & Executive Secretary
-    org: Pharmaceutical Policy Committee, Wuxi Pharmacists Association
+    org: Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association
     start: 2024-06-01
     summary: |
       Appointed in recognition of contributions to drug package insert reform initiatives.
@@ -94,8 +94,12 @@ skills:
         level: 3
       - label: SPSS
         level: 4
+      - label: Origin
+        level: 4
       - label: LaTeX/Markdown
         level: 5
+      - label: GitHub
+        level: 4
   - name: Multimedia Production
     items:
       - label: Video Editing
@@ -111,24 +115,88 @@ languages:
     level: 4
     label: C1 Proficient
 
+certifications:
+  - title: Licensed Pharmacist
+    awarder: National Medical Products Administration
+    date: "2021-11-01"
+    icon: hero/identification
+  - title: Good Clinical Practice (GCP) Certificate
+    awarder: ""
+    date: "2023-10-01"
+    icon: hero/clipboard-document-check
+
+patents:
+  - title: "Visualization Drug Usage QR Code Matching System V1.0"
+    type: Software Copyright
+    number: "2025SR0655705"
+    date: "2025-04-01"
+  - title: "Folate Gene and Folic Acid Concentration Determination Sample Preprocessing Device"
+    type: Utility Patent
+    number: "CN212988971U"
+    date: "2021-04-01"
+  - title: "Cooling Bottle"
+    type: Utility Patent
+    number: "CN215063055U"
+    date: "2021-12-01"
+
 awards:
   - title: Outstanding Reviewer of the Year (2025)
     awarder: Pharmaceutical and Clinical Research, Jiangsu Pharmaceutical Association
     date: "2026-01-01"
     summary: Recognized for contributions to peer review.
     icon: hero/trophy
+  - title: Excellence Award, 100 Health Micro-Projects
+    awarder: Wuxi Municipal Health Commission
+    date: "2024-12-01"
+    summary: Health innovation project recognition.
+    icon: hero/trophy
   - title: Third Prize, 12th National Hospital Management Tools Conference
     awarder: Tsinghua University Institute for Hospital Management
     date: "2024-11-01"
     summary: Pharmacy Track - Quality improvement project.
     icon: hero/trophy
-  - title: First Prize, 9th Wuxi Municipal Hospital Pharmacy QCC Competition
+  - title: Best Team Award, 15th Hospital Pharmacy Quality Management Competition
+    awarder: Jiangsu Pharmaceutical Association
+    date: "2024-09-01"
+    summary: Provincial pharmacy quality competition.
+    icon: hero/trophy
+  - title: First Prize, 9th Municipal Hospital Pharmacy QCC Competition
     awarder: Wuxi Pharmaceutical Association
     date: "2024-08-01"
     summary: Quality Control Circle competition.
     icon: hero/trophy
-  - title: First Prize, 5th Jiangsu Provincial Hospital QCC Competition
-    awarder: Jiangsu Province Hospital Association
+  - title: Third Prize, Pharmacy Service Classic Case Competition
+    awarder: Jiangsu Pharmaceutical Association
+    date: "2024-07-01"
+    summary: Drug package insert visualization case.
+    icon: hero/trophy
+  - title: First Batch "Pharmacy Science Popularization Base"
+    awarder: Jiangsu Pharmaceutical Association
+    date: "2024-04-01"
+    summary: Platform recognition for science communication.
+    icon: hero/building-library
+  - title: Best Case Award, 6th Healthcare Innovation Case Campaign
+    awarder: Health Daily
+    date: "2023-12-01"
+    summary: Drug package insert reform innovation.
+    icon: hero/trophy
+  - title: First Prize, 5th Provincial Hospital QCC Competition
+    awarder: Jiangsu Provincial Hospital Association
     date: "2021-08-01"
     summary: Quality Control Circle competition.
+    icon: hero/trophy
+  - title: Bronze Prize, Quality Management Conference
+    awarder: Jiangsu Pharmaceutical Association
+    date: "2020-11-01"
+    summary: Quality management project.
+    icon: hero/trophy
+  - title: Third Prize, 2nd Medicine and Health Science China Tour
+    awarder: Chinese Pharmacists Association
+    date: "2020-09-01"
+    summary: Southern Region science communication competition.
+    icon: hero/trophy
+  - title: First Prize, Quality Management Conference
+    awarder: Wuxi Pharmaceutical Association
+    date: "2020-09-01"
+    summary: Municipal quality management competition.
     icon: hero/trophy

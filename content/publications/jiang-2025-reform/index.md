@@ -1,40 +1,60 @@
 ---
 title: "Research on Pharmacist-led Science Communication for Drug Package Insert Reform"
+
 authors:
-- Jiang S
-- me
-- Yao Y
+  - Sunmin Jiang
+  - admin
+  - Ying Yao
+
 author_notes:
-- ""
-- "Co-Author"
-date: "2025-01-01T00:00:00Z"
-publishDate: "2025-01-01T00:00:00Z"
+  - ""
+  - ""
+  - ""
+
+date: "2025-01-01"
+
+doi: ""
 
 publication_types: ["article-journal"]
 
-publication: "*Man Kexue Xin Jiankang*, 2025: 147-149"
+publication: "*Man Kexue Xin Jiankang*, 147-149"
+
 publication_short: ""
 
-abstract: This study documents the methodology and outcomes of a pharmacist-led science communication initiative for drug package insert reform. The project developed over 150 visualized medication instruction videos covering 5 therapeutic categories, benefiting 850,000+ patients with 100% satisfaction rate. The innovative "One Drug One QR Code" system was implemented to integrate video links with hospital drug formulary and prescription slips.
+abstract: |
+  To improve patient healthcare experience and explore drug package insert reform, the research team investigated the problems existing in traditional drug package inserts. Based on the findings, the team integrated pharmacy science popularization resources to construct a new visualized drug package insert and service model. Using a fission communication model to promote science popularization videos and a self-developed "One Drug One QR Code" system, drug science popularization videos are presented as QR codes on prescription slips. Patients can quickly access concise, easy-to-understand visualized drug package inserts with real-person demonstrations by simply scanning the code, obtaining personalized pharmaceutical services.
 
-summary: Documenting pharmacist-led drug package insert visualization reform reaching 850,000+ patients.
+  This model has transformed over 150 drug package inserts, benefiting more than 850,000 people, and has been widely reported by authoritative media including Xuexi Qiangguo, earning national and municipal industry case awards. The research demonstrates that this low-cost, easily replicable approach positively promotes drug package insert reform, and visualized instructions with innovative pharmaceutical service models enable patients to "understand clearly and use safely" during medication.
+
+summary: "Developed a visualized drug package insert system with 150+ videos benefiting 850,000+ patients."
 
 tags:
-- Drug Package Insert
-- Science Communication
-- Patient Education
-- Health Communication
+  - Drug Package Insert
+  - Visualization
+  - Internet+
+  - Pharmaceutical Services
+  - Science Communication
+
+categories: []
+
 featured: false
 
-links: []
+url_pdf: ""
+url_code: ""
+url_dataset: ""
+url_poster: ""
+url_project: ""
+url_slides: ""
+url_source: ""
+url_video: ""
 
 image:
-  caption: ''
+  caption: ""
   focal_point: ""
   preview_only: false
 
 projects:
-- drug-insert-reform
+  - drug-insert-reform
 
 slides: ""
 ---
@@ -47,6 +67,8 @@ slides: ""
 - Achieved 100% patient satisfaction rate
 - Implemented "One Drug One QR Code" system
 
-## Innovation
+## Recognition
 
-The project identified limitations of national reform approaches (enlarged fonts, electronic versions) and proposed patient-centered visualization solutions addressing comprehension barriers.
+- Featured by Xuexi Qiangguo, Health Daily, and other authoritative media
+- Health Daily 6th Healthcare Innovation Case Campaign Best Case Award
+- Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" (First Batch)

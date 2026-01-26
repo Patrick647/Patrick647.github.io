@@ -1,11 +1,12 @@
 ---
-title: MTHFR Genetic Polymorphism Screening for Personalized Folic Acid Supplementation
-summary: Pharmacogenomics program providing personalized folate supplementation guidance to pregnant women.
+title: "MTHFR Genetic Polymorphism Screening for Personalized Folic Acid Supplementation"
+summary: "A pharmacogenomics program providing personalized folate supplementation guidance to 17,137+ pregnant women based on genetic risk stratification for neural tube defects."
 tags:
   - Pharmacogenomics
+  - Precision Medicine
   - Maternal Health
-  - Personalized Medicine
-date: '2020-07-01T00:00:00Z'
+date: '2020-07-01'
+date_end: '2024-11-01'
 
 external_link: ''
 
@@ -23,21 +24,22 @@ url_video: ''
 
 ## Overview
 
+**Duration**: July 2020 – November 2024
+
 **Role**: Research Team Member
-**Period**: July 2020 – November 2024
 
-A pharmacogenomics program utilizing genetic polymorphism testing to stratify the risk of neural tube defects in infants and provide personalized folate supplementation guidance.
+## Project Overview
 
-## Key Achievements
+This project utilized MTHFR genetic polymorphism testing to stratify the risk of neural tube defects in infants, enabling personalized active folate supplementation and lifestyle guidance for pregnant women.
 
-- Provided personalized folate supplementation guidance to **17,137+ pregnant women**
-- **Independently developed** a patient results query system
-- Secured **2 invention patents** in collaboration with colleagues:
-  - CN212988971U - Folate Gene and Folic Acid Concentration Determination Sample Preprocessing Device
-  - CN215063055U - Cooling Bottle
+## My Contributions
 
-## Approach
+- Independently developed a patient results query system to improve accessibility of genetic testing outcomes
+- Collaborated with colleagues to secure 2 invention patents
 
-- Utilized genetic polymorphism testing to stratify risk
-- Ensured adequate doses of folate through personalized active folate supplementation
-- Provided lifestyle guidance based on genetic profiles
+## Outcomes
+
+- **Beneficiaries**: 17,137+ pregnant women received personalized folate supplementation guidance
+- **Patents**:
+  - Folate Gene and Folic Acid Concentration Determination Sample Preprocessing Device (CN212988971U, April 2021)
+  - Cooling Bottle (CN215063055U, December 2021)

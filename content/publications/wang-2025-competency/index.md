@@ -1,44 +1,73 @@
 ---
 title: "Research on the Competency Evaluation Index System of Pharmacists for Primary Medical and Health Institutions in Wuxi Based on a Delphi Method"
+
 authors:
-- me
-- Jiang S
-- Zhu H
-- Zhou G
-- Zhao Y
-- Wang L
-- Zhu Y
-- Yao Y
+  - admin
+  - Sunmin Jiang
+  - Hongbin Zhu
+  - Ganqian Zhou
+  - Yiqing Zhao
+  - Liya Wang
+  - Yuanyuan Zhu
+  - Ying Yao
+
 author_notes:
-- "First Author"
-date: "2025-06-01T00:00:00Z"
-publishDate: "2025-06-01T00:00:00Z"
+  - "First Author"
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
+  - "Corresponding Author"
+
+date: "2025-06-01"
+
+doi: ""
 
 publication_types: ["article-journal"]
 
-publication: "*Pharmaceutical and Clinical Research*, 2025, 33(6): 533-536"
-publication_short: "Pharm Clin Res"
+publication: "*Pharmaceutical and Clinical Research*, 33(6), 533-536"
 
-abstract: This study designed and led a multi-institutional research project to construct a competency evaluation framework for primary healthcare pharmacists, addressing the gap in existing models that focus primarily on tertiary hospitals. Three rounds of Delphi consultations were conducted with 52 experts (84.6% senior titles, 78.9% with 20+ years experience), achieving 100% response rate and authority coefficients of 0.886–0.934. The findings contribute the first localized pharmacist competency model for Wuxi's primary healthcare system.
+publication_short: ""
 
-summary: First localized pharmacist competency evaluation framework for primary healthcare in Wuxi, using Delphi methodology with 52 experts.
+abstract: |
+  Objective: To construct a post competency evaluation index system of pharmacists for primary healthcare institutions in Wuxi, and to provide decision-making support for health administrative departments in implementing differential assessment, precise training and optimal resource allocation.
+
+  Methods: Literature analysis was employed to preliminarily establish an indicator pool comprising 4 primary indicators and 27 secondary indicators. From January to April 2025, 52 experts were selected to participate in three rounds of Delphi consultations. The final indicators were screened and determined based on importance scores and coefficients of variation.
+
+  Results: The effective response rates for the three rounds of expert consultations were all 100%. The expert authority coefficients for the three rounds were 0.886, 0.934 and 0.930, respectively. The Kendall's coefficients of concordance (Kendall's W) were 0.202, 0.214 and 0.225. The final evaluation index system consists of 4 primary indicators and 22 secondary indicators.
+
+  Conclusion: This system integrates the core concepts of the International Pharmaceutical Federation with the actual practice of primary healthcare in Wuxi, possessing high scientific validity and applicability.
+
+summary: "Constructed a pharmacist competency evaluation framework for primary healthcare using Delphi methodology with 52 experts, achieving 100% response rate and high authority coefficients."
 
 tags:
-- Pharmacist Competency
-- Primary Healthcare
-- Delphi Method
-- Health Services Research
+  - Delphi Method
+  - Pharmacist Competency
+  - Primary Healthcare
+  - Health Services Research
+
+categories: []
+
 featured: true
 
-links: []
+url_pdf: ""
+url_code: ""
+url_dataset: ""
+url_poster: ""
+url_project: ""
+url_slides: ""
+url_source: ""
+url_video: ""
 
 image:
-  caption: ''
+  caption: ""
   focal_point: ""
   preview_only: false
 
 projects:
-- pharmacist-competency
+  - pharmacist-competency
 
 slides: ""
 ---
@@ -50,6 +79,7 @@ slides: ""
 - 78.9% had 20+ years of professional experience
 - Achieved 100% response rate across all rounds
 - Authority coefficients ranged from 0.886 to 0.934
+- Final framework: 4 primary indicators and 22 secondary indicators
 
 ## Significance
 
