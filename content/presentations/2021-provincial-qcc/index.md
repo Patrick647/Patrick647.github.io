@@ -18,7 +18,7 @@ all_day: true
 publishDate: ""
 
 authors:
-  - me
+  - Dongxu Wang
 
 tags:
   - Digital Health
