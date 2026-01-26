@@ -9,7 +9,8 @@
   -webkit-user-drag: none !important;
   user-select: none !important;
   -webkit-user-select: none !important;
-  object-position: center 45% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
 }
 
 /* 头像改为椭圆形 */
