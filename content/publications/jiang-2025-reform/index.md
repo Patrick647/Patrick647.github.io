@@ -3,7 +3,7 @@ title: "Research on Pharmacist-led Science Communication for Drug Package Insert
 
 authors:
   - Sunmin Jiang
-  - admin
+  - me
   - Ying Yao
 
 author_notes:

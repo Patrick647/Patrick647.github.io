@@ -18,7 +18,7 @@ all_day: true
 publishDate: ""
 
 authors:
-  - admin
+  - me
   - Xiao Liu
 
 tags:

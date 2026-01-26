@@ -18,7 +18,7 @@ all_day: true
 publishDate: ""
 
 authors:
-  - admin
+  - me
 
 tags:
   - Drug Package Insert

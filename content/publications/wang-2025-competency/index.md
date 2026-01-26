@@ -2,7 +2,7 @@
 title: "Research on the Competency Evaluation Index System of Pharmacists for Primary Medical and Health Institutions in Wuxi Based on a Delphi Method"
 
 authors:
-  - admin
+  - me
   - Sunmin Jiang
   - Hongbin Zhu
   - Ganqian Zhou
