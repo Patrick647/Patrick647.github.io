@@ -36,8 +36,7 @@
   {{ end }}
 {{ end }}
 
-{{/* Define category order and icons */}}
-{{ $categoryOrder := slice "Academic Service" "Quality Improvement & Innovation" "Platform Recognition" "Other" }}
+{{/* Define category icons */}}
 {{ $categoryIcons := dict
     "Academic Service" "hero/academic-cap"
     "Quality Improvement & Innovation" "hero/trophy"
@@ -45,72 +44,94 @@
     "Other" "hero/star"
 }}
 
-<div class="resume-awards py-12 px-4 md:py-16">
+{{/* Helper template for rendering award card */}}
+{{ define "partials/award-card" }}
+  {{ $title := "" }}
+  {{ with index . "title" }}{{ $title = printf "%v" . }}{{ end }}
+  {{ $awarder := "" }}
+  {{ with index . "awarder" }}{{ $awarder = printf "%v" . }}{{ end }}
+  {{ $date := "" }}
+  {{ with index . "date" }}
+    {{ $dateObj := time . }}
+    {{ $date = $dateObj.Format "Jan 2006" }}
+  {{ end }}
+  {{ $icon := "hero/trophy" }}
+  {{ with index . "icon" }}{{ $icon = printf "%v" . }}{{ end }}
+
+  <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 border border-gray-100 dark:border-gray-700
+              hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-200">
+    <div class="flex items-start gap-3">
+      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30
+                  flex items-center justify-center text-primary-600 dark:text-primary-400
+                  group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
+        {{ partial "functions/get_icon" (dict "name" $icon "attributes" "class='w-5 h-5'") }}
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4 class="font-medium text-gray-900 dark:text-white text-sm leading-tight mb-1 line-clamp-2">
+          {{ $title }}
+        </h4>
+        {{ if $awarder }}
+        <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 mb-1">
+          {{ $awarder }}
+        </p>
+        {{ end }}
+        {{ if $date }}
+        <p class="text-xs text-primary-600 dark:text-primary-400 font-medium">
+          {{ $date }}
+        </p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}
+
+<div class="resume-awards py-4 px-4 md:py-6">
   <div class="max-w-6xl mx-auto">
 
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-10 flex items-center gap-3">
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
       {{ partial "functions/get_icon" (dict "name" "hero/trophy" "attributes" "class='w-7 h-7 text-primary-500'") }}
       Honors & Awards
     </h2>
 
-    {{ range $categoryOrder }}
-      {{ $cat := . }}
-      {{ $catAwards := index $grouped $cat }}
-      {{ if $catAwards }}
-      <div class="mb-10">
-        {{/* Category Header */}}
-        <div class="flex items-center gap-2 mb-6">
-          {{ $catIcon := index $categoryIcons $cat | default "hero/star" }}
-          {{ partial "functions/get_icon" (dict "name" $catIcon "attributes" "class='w-5 h-5 text-gray-500 dark:text-gray-400'") }}
-          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">{{ $cat }}</h3>
-          <span class="text-sm text-gray-400 dark:text-gray-500">({{ len $catAwards }})</span>
-        </div>
+    {{/* Row 1: Academic Service (left) + Platform Recognition (right) */}}
+    {{ $academicAwards := index $grouped "Academic Service" }}
+    {{ $platformAwards := index $grouped "Platform Recognition" }}
+    {{ if or $academicAwards $platformAwards }}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
 
-        {{/* Awards Grid - Horizontal scroll on mobile, grid on larger screens */}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {{ range $catAwards }}
+      {{/* Academic Service - Left */}}
+      {{ if $academicAwards }}
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          {{ partial "functions/get_icon" (dict "name" "hero/academic-cap" "attributes" "class='w-5 h-5 text-gray-500 dark:text-gray-400'") }}
+          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Academic Service</h3>
+        </div>
+        <div class="space-y-3">
+          {{ range $academicAwards }}
           {{ if reflect.IsMap . }}
           {{ $title := "" }}
           {{ with index . "title" }}{{ $title = printf "%v" . }}{{ end }}
-
           {{ $awarder := "" }}
           {{ with index . "awarder" }}{{ $awarder = printf "%v" . }}{{ end }}
-
           {{ $date := "" }}
           {{ with index . "date" }}
             {{ $dateObj := time . }}
             {{ $date = $dateObj.Format "Jan 2006" }}
           {{ end }}
+          {{ $icon := index . "icon" | default "hero/academic-cap" }}
 
-          {{ $icon := "hero/trophy" }}
-          {{ with index . "icon" }}{{ $icon = printf "%v" . }}{{ end }}
-
-          {{/* Award Card */}}
           <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 border border-gray-100 dark:border-gray-700
                       hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-200">
             <div class="flex items-start gap-3">
-              {{/* Icon */}}
               <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30
                           flex items-center justify-center text-primary-600 dark:text-primary-400
                           group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
                 {{ partial "functions/get_icon" (dict "name" $icon "attributes" "class='w-5 h-5'") }}
               </div>
-
-              {{/* Content */}}
               <div class="flex-1 min-w-0">
-                <h4 class="font-medium text-gray-900 dark:text-white text-sm leading-tight mb-1 line-clamp-2">
-                  {{ $title }}
-                </h4>
-                {{ if $awarder }}
-                <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 mb-1">
-                  {{ $awarder }}
-                </p>
-                {{ end }}
-                {{ if $date }}
-                <p class="text-xs text-primary-600 dark:text-primary-400 font-medium">
-                  {{ $date }}
-                </p>
-                {{ end }}
+                <h4 class="font-medium text-gray-900 dark:text-white text-sm leading-tight mb-1">{{ $title }}</h4>
+                {{ if $awarder }}<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">{{ $awarder }}</p>{{ end }}
+                {{ if $date }}<p class="text-xs text-primary-600 dark:text-primary-400 font-medium">{{ $date }}</p>{{ end }}
               </div>
             </div>
           </div>
@@ -119,6 +140,138 @@
         </div>
       </div>
       {{ end }}
+
+      {{/* Platform Recognition - Right */}}
+      {{ if $platformAwards }}
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          {{ partial "functions/get_icon" (dict "name" "hero/building-library" "attributes" "class='w-5 h-5 text-gray-500 dark:text-gray-400'") }}
+          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Platform Recognition</h3>
+        </div>
+        <div class="space-y-3">
+          {{ range $platformAwards }}
+          {{ if reflect.IsMap . }}
+          {{ $title := "" }}
+          {{ with index . "title" }}{{ $title = printf "%v" . }}{{ end }}
+          {{ $awarder := "" }}
+          {{ with index . "awarder" }}{{ $awarder = printf "%v" . }}{{ end }}
+          {{ $date := "" }}
+          {{ with index . "date" }}
+            {{ $dateObj := time . }}
+            {{ $date = $dateObj.Format "Jan 2006" }}
+          {{ end }}
+          {{ $icon := index . "icon" | default "hero/building-library" }}
+
+          <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 border border-gray-100 dark:border-gray-700
+                      hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-200">
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30
+                          flex items-center justify-center text-primary-600 dark:text-primary-400
+                          group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
+                {{ partial "functions/get_icon" (dict "name" $icon "attributes" "class='w-5 h-5'") }}
+              </div>
+              <div class="flex-1 min-w-0">
+                <h4 class="font-medium text-gray-900 dark:text-white text-sm leading-tight mb-1">{{ $title }}</h4>
+                {{ if $awarder }}<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">{{ $awarder }}</p>{{ end }}
+                {{ if $date }}<p class="text-xs text-primary-600 dark:text-primary-400 font-medium">{{ $date }}</p>{{ end }}
+              </div>
+            </div>
+          </div>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+    </div>
+    {{ end }}
+
+    {{/* Row 2: Quality Improvement & Innovation - Full Width */}}
+    {{ $qiAwards := index $grouped "Quality Improvement & Innovation" }}
+    {{ if $qiAwards }}
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-4">
+        {{ partial "functions/get_icon" (dict "name" "hero/trophy" "attributes" "class='w-5 h-5 text-gray-500 dark:text-gray-400'") }}
+        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Quality Improvement & Innovation</h3>
+        <span class="text-sm text-gray-400 dark:text-gray-500">({{ len $qiAwards }})</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {{ range $qiAwards }}
+        {{ if reflect.IsMap . }}
+        {{ $title := "" }}
+        {{ with index . "title" }}{{ $title = printf "%v" . }}{{ end }}
+        {{ $awarder := "" }}
+        {{ with index . "awarder" }}{{ $awarder = printf "%v" . }}{{ end }}
+        {{ $date := "" }}
+        {{ with index . "date" }}
+          {{ $dateObj := time . }}
+          {{ $date = $dateObj.Format "Jan 2006" }}
+        {{ end }}
+        {{ $icon := index . "icon" | default "hero/trophy" }}
+
+        <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 border border-gray-100 dark:border-gray-700
+                    hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-200">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30
+                        flex items-center justify-center text-primary-600 dark:text-primary-400
+                        group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
+              {{ partial "functions/get_icon" (dict "name" $icon "attributes" "class='w-5 h-5'") }}
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-medium text-gray-900 dark:text-white text-sm leading-tight mb-1 line-clamp-2">{{ $title }}</h4>
+              {{ if $awarder }}<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 mb-1">{{ $awarder }}</p>{{ end }}
+              {{ if $date }}<p class="text-xs text-primary-600 dark:text-primary-400 font-medium">{{ $date }}</p>{{ end }}
+            </div>
+          </div>
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* Other categories if any */}}
+    {{ $otherAwards := index $grouped "Other" }}
+    {{ if $otherAwards }}
+    <div class="mb-6">
+      <div class="flex items-center gap-2 mb-4">
+        {{ partial "functions/get_icon" (dict "name" "hero/star" "attributes" "class='w-5 h-5 text-gray-500 dark:text-gray-400'") }}
+        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Other</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {{ range $otherAwards }}
+        {{ if reflect.IsMap . }}
+        {{ $title := "" }}
+        {{ with index . "title" }}{{ $title = printf "%v" . }}{{ end }}
+        {{ $awarder := "" }}
+        {{ with index . "awarder" }}{{ $awarder = printf "%v" . }}{{ end }}
+        {{ $date := "" }}
+        {{ with index . "date" }}
+          {{ $dateObj := time . }}
+          {{ $date = $dateObj.Format "Jan 2006" }}
+        {{ end }}
+        {{ $icon := index . "icon" | default "hero/star" }}
+
+        <div class="group bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 border border-gray-100 dark:border-gray-700
+                    hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-200">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30
+                        flex items-center justify-center text-primary-600 dark:text-primary-400
+                        group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
+              {{ partial "functions/get_icon" (dict "name" $icon "attributes" "class='w-5 h-5'") }}
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-medium text-gray-900 dark:text-white text-sm leading-tight mb-1 line-clamp-2">{{ $title }}</h4>
+              {{ if $awarder }}<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 mb-1">{{ $awarder }}</p>{{ end }}
+              {{ if $date }}<p class="text-xs text-primary-600 dark:text-primary-400 font-medium">{{ $date }}</p>{{ end }}
+            </div>
+          </div>
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
     {{ end }}
 
   </div>
