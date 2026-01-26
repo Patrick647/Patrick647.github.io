@@ -13,6 +13,13 @@
 }
 
 /* 头像改为椭圆形 */
+#about .avatar-wrapper {
+  border-radius: 50% / 60% !important;
+  overflow: hidden !important;
+}
+
+#about .avatar-wrapper img,
+#about img.avatar,
 #about .rounded-full {
   border-radius: 50% / 60% !important;
 }
