@@ -111,60 +111,60 @@ awards:
   - title: Outstanding Reviewer of the Year (2025)
     awarder: Pharmaceutical and Clinical Research, Jiangsu Pharmaceutical Association
     date: "2026-01-01"
-    summary: Recognized for contributions to peer review.
-    icon: hero/trophy
+    category: Academic Service
+    icon: hero/academic-cap
   - title: Excellence Award, 100 Health Micro-Projects
     awarder: Wuxi Municipal Health Commission
     date: "2024-12-01"
-    summary: Health innovation project recognition.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: Third Prize, 12th National Hospital Management Tools Conference
     awarder: Tsinghua University Institute for Hospital Management
     date: "2024-11-01"
-    summary: Pharmacy Track - Quality improvement project.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: Best Team Award, 15th Hospital Pharmacy Quality Management Competition
     awarder: Jiangsu Pharmaceutical Association
     date: "2024-09-01"
-    summary: Provincial pharmacy quality competition.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: First Prize, 9th Municipal Hospital Pharmacy QCC Competition
     awarder: Wuxi Pharmaceutical Association
     date: "2024-08-01"
-    summary: Quality Control Circle competition.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: Third Prize, Pharmacy Service Classic Case Competition
     awarder: Jiangsu Pharmaceutical Association
     date: "2024-07-01"
-    summary: Drug package insert visualization case.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: First Batch "Pharmacy Science Popularization Base"
     awarder: Jiangsu Pharmaceutical Association
     date: "2024-04-01"
-    summary: Platform recognition for science communication.
+    category: Platform Recognition
     icon: hero/building-library
   - title: Best Case Award, 6th Healthcare Innovation Case Campaign
     awarder: Health Daily
     date: "2023-12-01"
-    summary: Drug package insert reform innovation.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: First Prize, 5th Provincial Hospital QCC Competition
     awarder: Jiangsu Provincial Hospital Association
     date: "2021-08-01"
-    summary: Quality Control Circle competition.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: Bronze Prize, Quality Management Conference
     awarder: Jiangsu Pharmaceutical Association
     date: "2020-11-01"
-    summary: Quality management project.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: Third Prize, 2nd Medicine and Health Science China Tour
     awarder: Chinese Pharmacists Association
     date: "2020-09-01"
-    summary: Southern Region science communication competition.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
   - title: First Prize, Quality Management Conference
     awarder: Wuxi Pharmaceutical Association
     date: "2020-09-01"
-    summary: Municipal quality management competition.
+    category: Quality Improvement & Innovation
     icon: hero/trophy
