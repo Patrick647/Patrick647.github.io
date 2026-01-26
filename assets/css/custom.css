@@ -1,3 +1,8 @@
+/* 首页头像区域向下偏移，防止被导航栏遮挡 */
+#about {
+  padding-top: 2rem !important;
+}
+
 /* Hide site name in navbar */
 .navbar-brand {
   display: none !important;
