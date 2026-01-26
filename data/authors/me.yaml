@@ -2,115 +2,133 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. Alex Johnson
-  given: Alex
-  family: Johnson
-  alternate: ''  # Example: 王伟
-  pronunciation: ''  # Example: Wáng Wěi
+  display: Dongxu Wang
+  given: Dongxu
+  family: Wang
+  alternate: '汪东旭'
+  pronunciation: ''
   pronouns: he/him
 postnominals:
-  - PhD
-  - MIEEE
+  - MSc
+  - RPh
 status:
-  icon: "☕️"
-role: Senior AI Research Scientist
+  icon: "💊"
+role: Pharmacist | Researcher | Health Communication Specialist
 bio: |
-  Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
-  has been published in top conferences like NeurIPS and ICML, with over
-  10,000 citations. Alex is passionate about pushing the boundaries of AI
-  while ensuring ethical development.
+  Clinical Pharmacist specializing in pharmacogenomics and therapeutic drug monitoring.
+  Currently serving as a Clinical Trial Quality Assurance Officer at Jiangnan University
+  Affiliated Maternity and Child Healthcare Hospital. Committed to bridging the gap
+  between pharmaceutical science and public health through innovative communication
+  strategies and evidence-based policy research.
 
 affiliations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: Wuxi Maternity and Child Health Care Hospital
+    url: ''
+  - name: Wuxi Pharmacists Association
+    url: ''
 
 links:
   - icon: at-symbol
-    url: mailto:alex.johnson@example.com
+    url: mailto:Dongxu.2.Wang@outlook.com
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/example
-  - icon: brands/github
-    url: https://github.com/example
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/example/
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=example
+    url: https://www.linkedin.com/in/dongxu/
+  - icon: brands/github
+    url: https://github.com/Patrick647
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://orcid.org/
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Pharmacist Competency Development
+  - Drug Information Visualization
+  - Patient-centered Pharmaceutical Care
+  - Pharmacogenomics
+  - Health Communication
 
 education:
-  - degree: PhD Computer Science
-    institution: Stanford University
-    start: 2015-09-01
-    end: 2019-06-30
+  - degree: MSc Clinical Pharmacology
+    institution: King's College London
+    start: 2022-09-01
+    end: 2023-09-30
     summary: |
-      Thesis on scaling laws for neural language models. Published 5 papers in NeurIPS and ICML.
-    button:
-      text: Download dissertation
-      url: /resume.pdf
-      icon: hero/arrow-down-tray
-  - degree: MS Computer Science
-    institution: Carnegie Mellon University
-    start: 2013-09-01
-    end: 2015-05-31
-  - degree: BS Computer Science
-    institution: MIT
-    start: 2009-09-01
-    end: 2013-05-31
+      Courses: Good Clinical Practice, Data Management, Pharmaceutics, Pharmacokinetics and Pharmacodynamics.
+      Thesis: Development of high-sensitivity EpCAM and MUC-1 Aptasensor for early diagnosis of breast cancer.
+  - degree: Bachelor of Pharmacy
+    institution: China Pharmaceutical University
+    start: 2019-03-01
+    end: 2022-01-31
+    summary: |
+      Courses: Physiology, Pathophysiology, Biochemistry, Microbiology, Pharmacology, Pharmacy.
 
 experience:
-  - role: Senior AI Research Scientist
-    org: Meta AI
-    start: 2020-01-01
+  - role: Pharmacist & Clinical Trial QA Officer
+    org: Wuxi Maternity and Child Health Care Hospital
+    start: 2018-07-01
     summary: |
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models.
-    button:
-      text: View portfolio
-      url: /
-      icon: hero/arrow-down-tray
-  - role: AI Research Intern
-    org: OpenAI
-    start: 2019-06-01
-    end: 2019-12-31
+      Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center,
+      ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
+      Previously managed therapeutic drug monitoring services.
+  - role: Committee Member & Executive Secretary
+    org: Pharmaceutical Policy Committee, Wuxi Pharmacists Association
+    start: 2024-06-01
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      Appointed in recognition of contributions to drug package insert reform initiatives.
+      Coordinate policy meetings and facilitate communication between pharmacy experts and government health departments.
 
 skills:
-  - name: Technical Skills
+  - name: Laboratory Skills
     items:
+      - label: HPLC
+        level: 5
+      - label: Flow Cytometry
+        level: 4
+      - label: PCR
+        level: 4
+      - label: Electrochemical Sensor
+        level: 4
+  - name: Programming & Data Analysis
+    items:
+      - label: R
+        level: 4
       - label: Python
-        level: 5
-      - label: Machine Learning
-        level: 5
-      - label: Cloud Computing
+        level: 3
+      - label: SPSS
         level: 4
-  - name: Research & Communication
+      - label: LaTeX/Markdown
+        level: 5
+  - name: Multimedia Production
     items:
-      - label: Academic Writing
+      - label: Video Editing
+        level: 4
+      - label: Science Communication
         level: 5
-      - label: Conference Presentations
-        level: 4
-      - label: Grant Proposals
-        level: 4
 
 languages:
-  - name: English
+  - name: Chinese
     level: 5
     label: Native
-  - name: Spanish
+  - name: English
     level: 4
-    label: Fluent
+    label: C1 Proficient
 
 awards:
-  - title: Best Paper Award
-    awarder: NeurIPS
-    date: "2022-12-01"
-    summary: Awarded for groundbreaking work on efficient training of large models.
+  - title: Outstanding Reviewer of the Year (2025)
+    awarder: Pharmaceutical and Clinical Research, Jiangsu Pharmaceutical Association
+    date: "2026-01-01"
+    summary: Recognized for contributions to peer review.
+    icon: hero/trophy
+  - title: Third Prize, 12th National Hospital Management Tools Conference
+    awarder: Tsinghua University Institute for Hospital Management
+    date: "2024-11-01"
+    summary: Pharmacy Track - Quality improvement project.
+    icon: hero/trophy
+  - title: First Prize, 9th Wuxi Municipal Hospital Pharmacy QCC Competition
+    awarder: Wuxi Pharmaceutical Association
+    date: "2024-08-01"
+    summary: Quality Control Circle competition.
+    icon: hero/trophy
+  - title: First Prize, 5th Jiangsu Provincial Hospital QCC Competition
+    awarder: Jiangsu Province Hospital Association
+    date: "2021-08-01"
+    summary: Quality Control Circle competition.
     icon: hero/trophy

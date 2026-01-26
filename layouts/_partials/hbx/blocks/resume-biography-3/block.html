@@ -1,0 +1,248 @@
+{{/* Hugo Blox: Biography 3 - Custom with side-by-side Interests & Education */}}
+{{/* Based on HugoBlox template, modified for lakemper.eu style layout */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $design := $block.design }}
+{{ if not (reflect.IsMap $design) }}{{ $design = dict }}{{ end }}
+
+{{ $author := "me" }}
+{{ $authorRaw := index $content "username" }}
+{{ if eq (printf "%T" $authorRaw) "string" }}
+  {{ $author = $authorRaw }}
+{{ end }}
+{{ $profile := partial "functions/get_author_profile" $author }}
+{{ $avatar := $profile.avatar }}
+{{ $headings := index $content "headings" }}
+{{ if not (reflect.IsMap $headings) }}{{ $headings = dict }}{{ end }}
+
+{{/* Avatar customization parameters */}}
+{{ $avatar_size := "large" }}
+{{ $avatar_shape := "circle" }}
+{{ $avatar_config := index $design "avatar" }}
+{{ if and $avatar_config (reflect.IsMap $avatar_config) }}
+  {{ $avatar_size_raw := index $avatar_config "size" }}
+  {{ if eq (printf "%T" $avatar_size_raw) "string" }}
+    {{ $avatar_size = $avatar_size_raw }}
+  {{ end }}
+  {{ $avatar_shape_raw := index $avatar_config "shape" }}
+  {{ if eq (printf "%T" $avatar_shape_raw) "string" }}
+    {{ $avatar_shape = $avatar_shape_raw }}
+  {{ end }}
+{{ end }}
+
+{{/* Size mappings */}}
+{{ $size_map := dict "small" (slice "150" "300") "medium" (slice "200" "400") "large" (slice "270" "540") "xl" (slice "400" "800") "xxl" (slice "500" "1000") }}
+{{ $size_config := index $size_map $avatar_size | default (index $size_map "large") }}
+{{ $display_size := index $size_config 0 }}
+{{ $generation_size := index $size_config 1 }}
+
+{{/* Shape class mappings */}}
+{{ $shape_classes := dict "circle" "rounded-full" "square" "rounded-none" "rounded" "rounded-lg" }}
+{{ $shape_class := index $shape_classes $avatar_shape | default "rounded-full" }}
+
+<div class="resume-biography py-12 px-4 md:py-16 lg:py-20 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+
+      {{/* Left Column: Avatar and Info */}}
+      <div class="md:col-span-4 flex flex-col items-center text-center space-y-4">
+
+        {{/* Avatar */}}
+        {{ if $avatar }}
+        <div class="avatar-wrapper mb-4" style="width: {{$display_size}}px; height: {{$display_size}}px;">
+          {{ $avatar_image := $avatar.Fill (printf "%sx%s Center" $generation_size $generation_size) }}
+          <img class="avatar {{$shape_class}} border-4 border-gray-100 shadow-lg"
+               src="{{ $avatar_image.RelPermalink }}"
+               alt="{{$profile.title}}"
+               width="{{$display_size}}"
+               height="{{$display_size}}"
+               style="width: {{$display_size}}px; height: {{$display_size}}px; object-fit: cover;">
+        </div>
+        {{ end }}
+
+        {{/* Name */}}
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+          {{ $profile.title }}
+        </h1>
+
+        {{/* Role */}}
+        {{ with $profile.role }}
+        <p class="text-lg text-gray-600 dark:text-gray-400">{{ . | markdownify }}</p>
+        {{ end }}
+
+        {{/* Affiliations */}}
+        {{ $affiliations_raw := $profile.affiliations }}
+        {{ $affiliations := slice }}
+        {{ if reflect.IsSlice $affiliations_raw }}
+          {{ $affiliations = $affiliations_raw }}
+        {{ end }}
+        {{ range $affiliations }}
+          {{ $aff_name := "" }}
+          {{ $aff_url := "" }}
+          {{ if reflect.IsMap . }}
+            {{ $nameRaw := index . "name" | default (index . "title") }}
+            {{ if ne $nameRaw nil }}
+              {{ $aff_name = printf "%v" $nameRaw }}
+            {{ end }}
+            {{ $urlRaw := index . "url" }}
+            {{ if eq (printf "%T" $urlRaw) "string" }}
+              {{ $aff_url = $urlRaw }}
+            {{ end }}
+          {{ else if eq (printf "%T" .) "string" }}
+            {{ $aff_name = . }}
+          {{ end }}
+          {{ if $aff_name }}
+            <p class="text-base text-primary-600 dark:text-primary-400">
+              {{ if $aff_url }}
+                <a href="{{ $aff_url }}" class="hover:underline" target="_blank" rel="noopener">{{ $aff_name }}</a>
+              {{ else }}
+                {{ $aff_name }}
+              {{ end }}
+            </p>
+          {{ end }}
+        {{ end }}
+
+        {{/* Social Icons */}}
+        {{ $links_raw := $profile.links }}
+        {{ $links := slice }}
+        {{ if reflect.IsSlice $links_raw }}
+          {{ $links = $links_raw }}
+        {{ end }}
+        {{ if gt (len $links) 0 }}
+        <div class="flex flex-wrap justify-center gap-3 pt-4">
+          {{ range $links }}
+          {{ $linkUrl := "" }}
+          {{ $iconName := "hero/link" }}
+          {{ $linkLabel := "" }}
+          {{ if reflect.IsMap . }}
+            {{ $urlRaw := index . "url" | default (index . "link") }}
+            {{ if eq (printf "%T" $urlRaw) "string" }}
+              {{ $linkUrl = $urlRaw }}
+            {{ end }}
+            {{ $iconRaw := index . "icon" }}
+            {{ if eq (printf "%T" $iconRaw) "string" }}
+              {{ $iconName = $iconRaw }}
+            {{ end }}
+            {{ $labelRaw := index . "label" }}
+            {{ if eq (printf "%T" $labelRaw) "string" }}
+              {{ $linkLabel = $labelRaw }}
+            {{ end }}
+          {{ end }}
+          {{ if $linkUrl }}
+            <a href="{{ $linkUrl | safeURL }}" target="_blank" rel="noopener"
+               aria-label="{{ $iconName }}"
+               {{ if $linkLabel }} title="{{ $linkLabel }}"{{ end }}
+               class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400
+                      hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-900 dark:hover:text-primary-400
+                      transition-colors duration-200">
+              {{ partial "functions/get_icon" (dict "name" $iconName "attributes" "class=\"w-5 h-5\"") }}
+            </a>
+          {{ end }}
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+
+      {{/* Right Column: Bio + Interests/Education */}}
+      <div class="md:col-span-8">
+
+        {{/* Bio Section */}}
+        {{ $bio_content := "" }}
+        {{ $bio_override_raw := index $content "text" }}
+        {{ if ne $bio_override_raw nil }}
+          {{ $bio_content = printf "%v" $bio_override_raw | emojify | $page.RenderString }}
+        {{ end }}
+        {{ if not $bio_content }}
+          {{ with $profile.bio }}{{ $bio_content = printf "%v" . | emojify | $page.RenderString }}{{ end }}
+        {{ end }}
+        {{ with $bio_content }}
+        <div class="prose prose-lg dark:prose-invert text-gray-700 dark:text-gray-300 mb-10">
+          {{ . }}
+        </div>
+        {{ end }}
+
+        {{/* Interests and Education - Side by Side */}}
+        {{ $interests_raw := $profile.interests }}
+        {{ $interests := slice }}
+        {{ if reflect.IsSlice $interests_raw }}
+          {{ $interests = $interests_raw }}
+        {{ end }}
+
+        {{ $education_raw := $profile.education }}
+        {{ $education := slice }}
+        {{ if reflect.IsSlice $education_raw }}
+          {{ $education = $education_raw }}
+        {{ end }}
+
+        {{ if or (gt (len $interests) 0) (gt (len $education) 0) }}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+
+          {{/* Interests - Left */}}
+          {{ if gt (len $interests) 0 }}
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Interests</h3>
+            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+              {{ range $interests }}
+              {{ $interest := strings.TrimSpace (printf "%v" .) }}
+              {{ if $interest }}
+              <li class="flex items-start">
+                <span class="text-primary-500 mr-2">•</span>
+                <span>{{ $interest | markdownify }}</span>
+              </li>
+              {{ end }}
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+
+          {{/* Education - Right */}}
+          {{ if gt (len $education) 0 }}
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Education</h3>
+            <div class="space-y-4">
+              {{ range $education }}
+              {{ if reflect.IsMap . }}
+              {{ $degree := "" }}
+              {{ $degreeRaw := index . "degree" | default (index . "area") }}
+              {{ if ne $degreeRaw nil }}{{ $degree = printf "%v" $degreeRaw }}{{ end }}
+              {{ $year := "" }}
+              {{ with index . "year" }}{{ $year = printf "%v" . }}{{ end }}
+              {{ $end := "" }}
+              {{ with index . "end" }}
+                {{ $endDate := time . }}
+                {{ $end = $endDate.Format "2006" }}
+              {{ end }}
+              {{ $institution := "" }}
+              {{ with index . "institution" }}{{ $institution = printf "%v" . }}{{ end }}
+
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 mt-1">
+                  {{ partial "functions/get_icon" (dict "name" "academic-cap" "attributes" "class='w-5 h-5 text-gray-500 dark:text-gray-400'") }}
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 dark:text-white">
+                    {{ $degree }}{{ if or $year $end }}, {{ $year }}{{ $end }}{{ end }}
+                  </p>
+                  {{ if $institution }}
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $institution }}</p>
+                  {{ end }}
+                </div>
+              </div>
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+
+        </div>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+</div>

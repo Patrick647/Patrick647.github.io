@@ -1,0 +1,11 @@
+/* Hide site name in navbar */
+.navbar-brand {
+  display: none !important;
+}
+
+/* Larger navbar font */
+nav a,
+nav .nav-link,
+[data-te-navbar-ref] a {
+  font-size: 1.125rem !important;
+}
