@@ -13,7 +13,7 @@ sections:
       username: me
     design:
       avatar:
-        size: medium
+        size: large
         shape: circle
       background:
         color: white

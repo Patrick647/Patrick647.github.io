@@ -3,12 +3,13 @@
   padding-top: 2rem !important;
 }
 
-/* 防止头像图片被下载 */
+/* 防止头像图片被下载，并调整头像位置使脸部居中 */
 #about img {
   pointer-events: none !important;
   -webkit-user-drag: none !important;
   user-select: none !important;
   -webkit-user-select: none !important;
+  object-position: center 15% !important;
 }
 
 /* Hide site name in navbar */
