@@ -75,38 +75,6 @@ experience:
       Appointed in recognition of contributions to drug package insert reform initiatives.
       Coordinate policy meetings and facilitate communication between pharmacy experts and government health departments.
 
-skills:
-  - name: Laboratory Skills
-    items:
-      - label: HPLC
-        level: 5
-      - label: Flow Cytometry
-        level: 4
-      - label: PCR
-        level: 4
-      - label: Electrochemical Sensor
-        level: 4
-  - name: Programming & Data Analysis
-    items:
-      - label: R
-        level: 4
-      - label: Python
-        level: 3
-      - label: SPSS
-        level: 4
-      - label: Origin
-        level: 4
-      - label: LaTeX/Markdown
-        level: 5
-      - label: GitHub
-        level: 4
-  - name: Multimedia Production
-    items:
-      - label: Video Editing
-        level: 4
-      - label: Science Communication
-        level: 5
-
 languages:
   - name: Chinese
     level: 5
