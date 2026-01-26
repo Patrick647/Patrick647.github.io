@@ -213,7 +213,7 @@
 **基本信息**:
 - 姓名: Dongxu Wang (汪东旭)
 - 职位: Pharmacist | Researcher | Health Communication Specialist
-- 机构: Wuxi Maternity and Child Health Care Hospital (无锡市妇幼保健院)
+- 机构: Affiliated Women's Hospital of Jiangnan University (无锡市妇幼保健院)
 - 协会: Wuxi Pharmacists Association (无锡市药学会)
 
 **研究兴趣**:
@@ -228,7 +228,7 @@
 2. **Bachelor of Pharmacy** - China Pharmaceutical University (2019-2022)
 
 **工作经历**:
-1. **Pharmacist & Clinical Trial QA Officer** - Wuxi Maternity and Child Health Care Hospital (2018-至今)
+1. **Pharmacist & Clinical Trial QA Officer** - Affiliated Women's Hospital of Jiangnan University (2018-至今)
 2. **Committee Member & Executive Secretary** - Pharmaceutical Policy Committee, Wuxi Pharmacists Association (2024-至今)
 
 **技能体系**:
@@ -404,7 +404,7 @@ config/_default/
 
 ### 结构化数据
 - **类型**: Person
-- **组织**: Wuxi Maternity and Child Health Care Hospital
+- **组织**: Affiliated Women's Hospital of Jiangnan University
 
 ### AI爬虫指引
 - **允许**: / (所有公开内容)
@@ -434,7 +434,7 @@ config/_default/
 
 **网站所有者**: Dongxu Wang (汪东旭)  
 **邮箱**: Dongxu.2.Wang@outlook.com  
-**机构**: Wuxi Maternity and Child Health Care Hospital  
+**机构**: Affiliated Women's Hospital of Jiangnan University  
 
 ---
 

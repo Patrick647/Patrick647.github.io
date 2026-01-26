@@ -15,14 +15,14 @@ status:
   icon: "💊"
 role: Pharmacist | Researcher | Health Communication Specialist
 bio: |
-  Clinical Pharmacist specializing in pharmacy practice and health services research. Currently serving as a Clinical Trial Quality Assurance Officer at Wuxi Maternity and Child Health Care Hospital (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), and Committee Member & Executive Secretary of the Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association.
+  Clinical Pharmacist specializing in pharmacy practice and health services research. Currently serving as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), and Committee Member & Executive Secretary of the Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association.
 
   My research focuses on pharmacist competency development, drug information visualization, and patient-centered pharmaceutical care. I led the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed over 150 visualized medication instruction videos benefiting 850,000+ patients. This work contributed to the establishment of the first batch of Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" in April 2024.
 
   Committed to bridging the gap between pharmaceutical science and public health through innovative communication strategies and evidence-based policy research.
 
 affiliations:
-  - name: Wuxi Maternity and Child Health Care Hospital
+  - name: Affiliated Women's Hospital of Jiangnan University
     url: ''
   - name: Wuxi Pharmacists Association
     url: ''
@@ -63,7 +63,7 @@ education:
 
 experience:
   - role: Pharmacist & Clinical Trial QA Officer
-    org: Wuxi Maternity and Child Health Care Hospital
+    org: Affiliated Women's Hospital of Jiangnan University
     start: 2018-07-01
     summary: |
       Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
