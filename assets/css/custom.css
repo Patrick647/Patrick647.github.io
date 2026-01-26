@@ -12,6 +12,11 @@
   object-position: center 45% !important;
 }
 
+/* 头像改为椭圆形 */
+#about .rounded-full {
+  border-radius: 50% / 60% !important;
+}
+
 /* Hide site name in navbar */
 .navbar-brand {
   display: none !important;
