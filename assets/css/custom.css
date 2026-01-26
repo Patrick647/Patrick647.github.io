@@ -44,3 +44,8 @@ nav .nav-link,
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
+
+/* 隐藏页脚所有元素 */
+.page-footer footer {
+  display: none !important;
+}
