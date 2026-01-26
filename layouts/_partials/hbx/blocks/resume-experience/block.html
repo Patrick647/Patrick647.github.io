@@ -1,0 +1,173 @@
+{{/* Hugo Blox: Resume Experience - Custom with side-by-side Experience & Education */}}
+{{/* Displays Experience on left, Education on right */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $author := "me" }}
+{{ $authorRaw := index $content "username" }}
+{{ if eq (printf "%T" $authorRaw) "string" }}
+  {{ $author = $authorRaw }}
+{{ end }}
+{{ $profile := partial "functions/get_author_profile" $author }}
+
+{{/* Get Experience */}}
+{{ $experience_raw := $profile.experience }}
+{{ $experience := slice }}
+{{ if reflect.IsSlice $experience_raw }}
+  {{ $experience = $experience_raw }}
+{{ end }}
+
+{{/* Get Education */}}
+{{ $education_raw := $profile.education }}
+{{ $education := slice }}
+{{ if reflect.IsSlice $education_raw }}
+  {{ $education = $education_raw }}
+{{ end }}
+
+<div class="resume-experience py-12 px-4 md:py-16">
+  <div class="max-w-6xl mx-auto">
+
+    {{/* Two Column Grid: Experience | Education */}}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      {{/* Left Column: Experience */}}
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+          {{ partial "functions/get_icon" (dict "name" "hero/briefcase" "attributes" "class='w-7 h-7 text-primary-500'") }}
+          Experience
+        </h2>
+
+        {{ if gt (len $experience) 0 }}
+        <div class="space-y-8">
+          {{ range $experience }}
+          {{ if reflect.IsMap . }}
+          {{ $role := "" }}
+          {{ with index . "role" }}{{ $role = printf "%v" . }}{{ end }}
+          {{ with index . "title" }}{{ $role = printf "%v" . }}{{ end }}
+
+          {{ $org := "" }}
+          {{ with index . "org" }}{{ $org = printf "%v" . }}{{ end }}
+          {{ with index . "company" }}{{ $org = printf "%v" . }}{{ end }}
+          {{ with index . "organization" }}{{ $org = printf "%v" . }}{{ end }}
+
+          {{ $summary := "" }}
+          {{ with index . "summary" }}{{ $summary = printf "%v" . }}{{ end }}
+          {{ with index . "description" }}{{ $summary = printf "%v" . }}{{ end }}
+
+          {{ $start := "" }}
+          {{ with index . "start" }}
+            {{ $startDate := time . }}
+            {{ $start = $startDate.Format "Jan 2006" }}
+          {{ end }}
+
+          {{ $end := "Present" }}
+          {{ with index . "end" }}
+            {{ $endDate := time . }}
+            {{ $end = $endDate.Format "Jan 2006" }}
+          {{ end }}
+
+          <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+            {{/* Timeline dot */}}
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-500 border-2 border-white dark:border-gray-900"></div>
+
+            <div class="mb-1 text-sm text-gray-500 dark:text-gray-400">
+              {{ $start }} – {{ $end }}
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              {{ $role }}
+            </h3>
+
+            {{ if $org }}
+            <p class="text-primary-600 dark:text-primary-400 mb-2">{{ $org }}</p>
+            {{ end }}
+
+            {{ if $summary }}
+            <div class="text-gray-600 dark:text-gray-400 text-sm prose prose-sm dark:prose-invert max-w-none">
+              {{ $summary | $page.RenderString }}
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ end }}
+        </div>
+        {{ else }}
+        <p class="text-gray-500 dark:text-gray-400">No experience listed.</p>
+        {{ end }}
+      </div>
+
+      {{/* Right Column: Education */}}
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+          {{ partial "functions/get_icon" (dict "name" "hero/academic-cap" "attributes" "class='w-7 h-7 text-primary-500'") }}
+          Education
+        </h2>
+
+        {{ if gt (len $education) 0 }}
+        <div class="space-y-8">
+          {{ range $education }}
+          {{ if reflect.IsMap . }}
+          {{ $degree := "" }}
+          {{ with index . "degree" }}{{ $degree = printf "%v" . }}{{ end }}
+          {{ with index . "area" }}{{ $degree = printf "%v" . }}{{ end }}
+
+          {{ $institution := "" }}
+          {{ with index . "institution" }}{{ $institution = printf "%v" . }}{{ end }}
+          {{ with index . "school" }}{{ $institution = printf "%v" . }}{{ end }}
+
+          {{ $summary := "" }}
+          {{ with index . "summary" }}{{ $summary = printf "%v" . }}{{ end }}
+          {{ with index . "description" }}{{ $summary = printf "%v" . }}{{ end }}
+
+          {{ $start := "" }}
+          {{ with index . "start" }}
+            {{ $startDate := time . }}
+            {{ $start = $startDate.Format "Jan 2006" }}
+          {{ end }}
+
+          {{ $end := "" }}
+          {{ with index . "end" }}
+            {{ $endDate := time . }}
+            {{ $end = $endDate.Format "Jan 2006" }}
+          {{ end }}
+
+          <div class="relative pl-8 border-l-2 border-gray-200 dark:border-gray-700">
+            {{/* Timeline dot */}}
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-500 border-2 border-white dark:border-gray-900"></div>
+
+            {{ if or $start $end }}
+            <div class="mb-1 text-sm text-gray-500 dark:text-gray-400">
+              {{ $start }}{{ if and $start $end }} – {{ end }}{{ $end }}
+            </div>
+            {{ end }}
+
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              {{ $degree }}
+            </h3>
+
+            {{ if $institution }}
+            <p class="text-primary-600 dark:text-primary-400 mb-2">{{ $institution }}</p>
+            {{ end }}
+
+            {{ if $summary }}
+            <div class="text-gray-600 dark:text-gray-400 text-sm prose prose-sm dark:prose-invert max-w-none">
+              {{ $summary | $page.RenderString }}
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ end }}
+        </div>
+        {{ else }}
+        <p class="text-gray-500 dark:text-gray-400">No education listed.</p>
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</div>
