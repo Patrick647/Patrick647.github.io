@@ -67,3 +67,21 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# ============================================================================
+# Jekyll/Ruby (Legacy - kept for cleanup)
+# ============================================================================
+
+# Jekyll 构建输出
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# SASS/SCSS 编译器缓存
+.sass-cache/
+*.css.map
+
+# Ruby/Bundler
+vendor/bundle/
+vendor/cache/
+.bundle/
