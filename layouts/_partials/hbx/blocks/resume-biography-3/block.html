@@ -54,12 +54,12 @@
 
         {{/* Avatar - 椭圆形，保持原始比例 */}}
         {{ if $avatar }}
-        <div class="avatar-wrapper mb-4" style="width: {{$display_size}}px;">
+        <div class="avatar-wrapper mb-4 shadow-lg" style="width: {{$display_size}}px;">
           {{ $avatar_image := $avatar.Fit (printf "%sx%s" $generation_size $generation_size) }}
-          <img class="avatar border-4 border-gray-100 shadow-lg"
+          <img class="avatar"
                src="{{ $avatar_image.RelPermalink }}"
                alt="{{$profile.title}}"
-               style="width: 100%; height: auto; object-fit: contain;">
+               style="width: 100%; height: auto;">
         </div>
         {{ end }}
 
