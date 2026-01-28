@@ -13,16 +13,21 @@
   object-position: center center !important;
 }
 
-/* 头像改为椭圆形 */
-#about .avatar-wrapper {
-  border-radius: 50% / 60% !important;
+/* 头像改为椭圆形 - 竖向椭圆完整显示头发 */
+.avatar-wrapper {
+  border-radius: 45% / 50% !important;
   overflow: hidden !important;
+  aspect-ratio: 3 / 4 !important;
+  height: auto !important;
 }
 
-#about .avatar-wrapper img,
-#about img.avatar,
-#about .rounded-full {
-  border-radius: 50% / 60% !important;
+.avatar-wrapper img,
+img.avatar,
+.avatar.rounded-full {
+  border-radius: 45% / 50% !important;
+  aspect-ratio: 3 / 4 !important;
+  height: auto !important;
+  object-fit: cover !important;
 }
 
 /* Hide site name in navbar */
