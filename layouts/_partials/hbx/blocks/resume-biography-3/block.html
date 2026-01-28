@@ -52,16 +52,14 @@
       {{/* Left Column: Avatar and Info */}}
       <div class="md:col-span-4 flex flex-col items-center text-center space-y-4">
 
-        {{/* Avatar */}}
+        {{/* Avatar - 椭圆形，保持原始比例 */}}
         {{ if $avatar }}
-        <div class="avatar-wrapper mb-4" style="width: {{$display_size}}px; height: {{$display_size}}px;">
-          {{ $avatar_image := $avatar.Fill (printf "%sx%s Center" $generation_size $generation_size) }}
-          <img class="avatar {{$shape_class}} border-4 border-gray-100 shadow-lg"
+        <div class="avatar-wrapper mb-4" style="width: {{$display_size}}px;">
+          {{ $avatar_image := $avatar.Fit (printf "%sx%s" $generation_size $generation_size) }}
+          <img class="avatar border-4 border-gray-100 shadow-lg"
                src="{{ $avatar_image.RelPermalink }}"
                alt="{{$profile.title}}"
-               width="{{$display_size}}"
-               height="{{$display_size}}"
-               style="width: {{$display_size}}px; height: {{$display_size}}px; object-fit: cover;">
+               style="width: 100%; height: auto; object-fit: contain;">
         </div>
         {{ end }}
 
