@@ -102,6 +102,11 @@ awards:
     date: "2026-01-01"
     category: Academic Service
     icon: hero/academic-cap
+  - title: "Typical Case in Hospital Pharmacy Management, 2024 Modern Hospital Management"
+    awarder: National Health Commission Capacity Building and Continuing Education Center
+    date: "2025-07-01"
+    category: Quality Improvement & Innovation
+    icon: hero/trophy
   - title: Excellence Award, 100 Health Micro-Projects
     awarder: Wuxi Municipal Health Commission
     date: "2024-12-01"
