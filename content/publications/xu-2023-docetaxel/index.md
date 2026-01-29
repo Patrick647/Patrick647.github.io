@@ -49,7 +49,7 @@ categories: []
 
 featured: false
 
-url_pdf: "xu-2023-docetaxel.pdf"
+url_pdf: ""
 url_code: ""
 url_dataset: ""
 url_poster: ""

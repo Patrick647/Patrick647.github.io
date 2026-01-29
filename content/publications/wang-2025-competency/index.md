@@ -52,7 +52,7 @@ categories: []
 
 featured: true
 
-url_pdf: "wang-2025-competency.pdf"
+url_pdf: ""
 url_code: ""
 url_dataset: ""
 url_poster: ""
