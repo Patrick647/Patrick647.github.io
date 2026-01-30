@@ -12,7 +12,15 @@
     {{- $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" $raw) -}}
     {{- $termPage := site.GetPage (printf "/authors/%s" $slug) -}}
     {{- $display := $profile.title | default $raw -}}
-    {{- $highlight_name := $profile.is_owner | default false -}}
+    {{- $highlight_name := false -}}
+    {{- range $key, $author := site.Data.authors -}}
+      {{- if $author.is_owner -}}
+        {{- $ownerName := $author.name.display | default ($key | humanize | title) -}}
+        {{- if eq $raw $ownerName -}}
+          {{- $highlight_name = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
 
     {{- if gt $index 0 }}, {{ end -}}
     <span {{ if $highlight_name }}class="font-bold"{{end}}>
