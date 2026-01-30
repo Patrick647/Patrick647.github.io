@@ -53,3 +53,10 @@ nav .nav-link,
 .page-footer footer {
   display: none !important;
 }
+
+/* Allow awards text to wrap fully */
+.line-clamp-1,
+.line-clamp-2 {
+  -webkit-line-clamp: unset !important;
+  overflow: visible !important;
+}
