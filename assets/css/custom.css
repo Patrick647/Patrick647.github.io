@@ -54,6 +54,11 @@ nav .nav-link,
   display: none !important;
 }
 
+/* Bold site owner name in publications */
+a[href="/authors/dongxu-wang/"] {
+  font-weight: 700;
+}
+
 /* Allow awards text to wrap fully */
 .line-clamp-1,
 .line-clamp-2 {
