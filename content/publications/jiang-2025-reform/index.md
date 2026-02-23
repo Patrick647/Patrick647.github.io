@@ -53,8 +53,7 @@ image:
   focal_point: ""
   preview_only: false
 
-projects:
-  - drug-insert-reform
+projects: []
 
 slides: ""
 ---

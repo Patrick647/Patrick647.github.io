@@ -66,8 +66,7 @@ image:
   focal_point: ""
   preview_only: false
 
-projects:
-  - pharmacist-competency
+projects: []
 
 slides: ""
 ---

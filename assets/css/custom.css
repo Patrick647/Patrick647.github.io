@@ -40,15 +40,6 @@ nav .nav-link,
   font-size: 1.125rem !important;
 }
 
-/* 兼容性修复：Projects 和 Presentations 页面网格布局 */
-/* Hugo Blox 使用 CSS 嵌套语法，旧浏览器不支持，需要传统语法覆盖 */
-@media (min-width: 768px) {
-  .grid.gap-10.lg\:gap-10 {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
-}
-
 /* 隐藏页脚所有元素 */
 .page-footer footer {
   display: none !important;
@@ -59,4 +50,9 @@ nav .nav-link,
 .line-clamp-2 {
   -webkit-line-clamp: unset !important;
   overflow: visible !important;
+}
+
+/* Use pointer cursor for author note tooltip icons (instead of help/question cursor) */
+.author-notes {
+  cursor: pointer !important;
 }
