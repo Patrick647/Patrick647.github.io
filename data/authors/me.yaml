@@ -13,18 +13,20 @@ postnominals:
   - RPh
 status:
   icon: "💊"
-role: Pharmacist | Researcher
+role: Clinical Pharmacist | AI-enabled Clinical Platform Builder
 bio: |
-  I am a clinical pharmacist and early-career researcher working at the intersection of pharmacy practice, health services research, and clinical informatics. I currently serve as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), while also contributing to pharmacy policy and professional coordination through the Wuxi Pharmacists Association.
+  I am a clinical pharmacist and early-career researcher working at the intersection of pharmacy practice, clinical informatics, and implementation-oriented AI. I currently serve as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), while building digital systems for medication safety, pharmacist workflow automation, and clinical pharmacy training.
 
-  My research agenda focuses on pharmacist competency development, patient-centered pharmaceutical care, drug information visualization, and AI-assisted pharmacovigilance. I am particularly interested in how real-world clinical workflows can be translated into scalable, evaluable interventions that improve medication safety, communication quality, and implementation feasibility.
+  My current platform portfolio includes an ADR intelligent reporting system, a clinical pharmacist workstation, and a clinical pharmacist training base. These systems combine hospital data integration, rule engines, LLM-assisted extraction, confidence scoring, pharmacist review, pharmacokinetic calculation, and document-grade export workflows.
 
-  As a practice-based example of this approach, I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. This work informed local pharmaceutical science communication infrastructure and supported recognition as one of the first Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" sites (April 2024).
+  My ADR reporting work now includes an SSRN preprint and current manuscripts under review at *Drug Safety* and *JAMIA*, examining adverse drug reaction detection and reporting from clinical instant messaging using hybrid NLP and confidence-calibrated LLM pipelines. My published work on pharmacist competency evaluation supports the education-management logic behind the training-base platform.
 
-  My current working papers, under review at *Drug Safety* and *JAMIA*, examine adverse drug reaction detection and reporting from clinical instant messaging using hybrid NLP and confidence-calibrated LLM pipelines. In the long term, I aim to develop rigorous yet implementable methods that connect clinical pharmacy practice, digital health tools, and health system decision-making.
+  Earlier, I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. I now treat that science-communication work as a foundation for a broader goal: building rigorous yet implementable clinical pharmacy infrastructure.
 
 affiliations:
   - name: Affiliated Women's Hospital of Jiangnan University
+    url: ''
+  - name: Medical Education and Health Promotion Professional Committee, Jiangsu Pharmaceutical Association
     url: ''
   - name: Pharmaceutical Policy Professional Committee of Wuxi Pharmacists Association
     url: ''
@@ -41,9 +43,9 @@ links:
     url: https://orcid.org/0009-0005-2881-9872
 
 interests:
-  - Health Communication & Science Popularization
-  - Pharmacy Practice & Health Services Research
-  - Pharmacist Competency Development
+  - AI-enabled Pharmacovigilance & Medication Safety
+  - Clinical Pharmacy Informatics
+  - Pharmacist Workflow & Training Evaluation
 
 education:
   - degree: MSc Clinical Pharmacology
@@ -66,7 +68,15 @@ experience:
     start: 2018-07-01
     summary: |
       Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
-      Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
+      Build and maintain AI-enabled clinical pharmacy platforms for ADR reporting, pharmacist workflow automation, patient data integration, TDM/PK support, TPN review, MTM follow-up, clinical pathway review, and training-base management.
+
+service:
+  - role: Committee Member
+    org: Medical Education and Health Promotion Professional Committee, Jiangsu Pharmaceutical Association
+    start: 2026-04-01
+    summary: |
+      Serve as a committee member in provincial-level pharmacy education and health promotion academic service.
+      Contribute to professional communication around medication education, health promotion, and pharmacist-led public-facing pharmacy services.
   - role: Committee Member & Executive Secretary
     org: Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association
     start: 2024-06-01

@@ -19,9 +19,9 @@ hugoblox:
     # Schema.org type for structured data
     type: person                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: "Pharmacist | Researcher"
+    tagline: "Clinical Pharmacist | AI-enabled Clinical Platform Builder"
     # Site meta description for search engines and social sharing
-    description: "汪东旭 | 江南大学附属妇产医院临床药师 | Clinical Pharmacist specializing in pharmacogenomics and health communication"
+    description: "汪东旭 | 江南大学附属妇产医院临床药师 | Building AI-enabled clinical pharmacy platforms for ADR reporting, patient data integration, pharmacist workflow automation, and clinical pharmacist training management"
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""                       # Twitter/X handle for Twitter Cards (without @)
@@ -89,7 +89,7 @@ hugoblox:
     # Menu alignment
     align: center                       # left | center | right
     # Feature toggles
-    search: false
+    search: true
     theme_toggle: false
     theme_picker: false
     language_switcher: false

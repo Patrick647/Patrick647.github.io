@@ -4,14 +4,14 @@ cms_exclude: true
 type: landing
 
 design:
-  spacing: '3rem'
+  spacing: '2.5rem'
 
 sections:
   - block: collection
     id: working-papers
     content:
-      title: Working Papers
-      text: Manuscripts currently under peer review.
+      title: Preprints & Manuscripts
+      text: Current ADR and clinical informatics manuscripts.
       count: 10
       sort_by: Date
       sort_ascending: false
@@ -30,9 +30,9 @@ sections:
   - block: collection
     id: published-papers
     content:
-      title: Publications
-      text: Published peer-reviewed papers and related outputs.
-      count: 0
+      title: Published Articles
+      text: Peer-reviewed publications and related academic outputs.
+      count: 10
       sort_by: Date
       sort_ascending: false
       filters:

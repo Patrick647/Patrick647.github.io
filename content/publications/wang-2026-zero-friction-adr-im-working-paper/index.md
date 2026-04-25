@@ -19,20 +19,24 @@ author_notes:
   - "Corresponding Author"
   - "Corresponding Author"
 
-date: "2026-02-13"
+date: "2026-02-12"
 
 doi: ""
 
+hugoblox:
+  ids:
+    doi: "10.2139/ssrn.6236659"
+
 publication_types: ["working-paper"]
 
-publication: "*Working paper* (under review at *Drug Safety*)"
+publication: "*SSRN preprint* (under review at *Drug Safety*)"
 
-publication_short: ""
+publication_short: "SSRN preprint"
 
 abstract: |
   This manuscript presents a proof-of-concept hybrid NLP pipeline for adverse drug reaction (ADR) signal detection and information extraction from clinical instant messaging data. It combines a keyword-based rule engine with a locally deployed LLM in a zero-shot setting to support low-friction pharmacovigilance reporting workflows.
 
-summary: "Working paper under review at Drug Safety on hybrid NLP for ADR detection from clinical instant messaging."
+summary: "SSRN preprint under review at Drug Safety on hybrid NLP for ADR detection from clinical instant messaging."
 
 tags:
   - Adverse Drug Reactions
@@ -54,6 +58,12 @@ url_slides: ""
 url_source: ""
 url_video: ""
 
+links:
+  - type: source
+    url: https://ssrn.com/abstract=6236659
+  - type: doi
+    url: https://dx.doi.org/10.2139/ssrn.6236659
+
 image:
   caption: ""
   focal_point: ""
@@ -66,10 +76,13 @@ slides: ""
 
 ## Submission Status
 
-Under review at **Drug Safety**.
+Available as an **SSRN preprint** and under review at **Drug Safety**.
+
+SSRN: <https://ssrn.com/abstract=6236659>
+
+DOI: <https://dx.doi.org/10.2139/ssrn.6236659>
 
 ## Notes
 
-- Manuscript version archived here for working paper display on the publications page.
+- Preprint citation: Wang, Dongxu and Lu, Zihong and Yuan, Wenbo and Yuan, Kaiqiang and Yin, Di and Yao, Yin and Jiang, Sumin. *Zero-Friction Adverse Drug Reaction Reporting From Clinical Instant Messaging Using Hybrid NLP* (February 12, 2026). Available at SSRN: https://ssrn.com/abstract=6236659.
 - Topic: ADR detection and reporting from clinical instant messaging using a hybrid rule + LLM pipeline.
-
