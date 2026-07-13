@@ -13,15 +13,11 @@ postnominals:
   - RPh
 status:
   icon: "💊"
-role: Pharmacist | Researcher
+role: Clinical Pharmacist | Health Services Researcher
 bio: |
-  I am a clinical pharmacist and early-career researcher working at the intersection of pharmacy practice, health services research, and clinical informatics. I currently serve as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), while also contributing to pharmacy policy and professional coordination through the Wuxi Pharmacists Association.
+  I am a clinical pharmacist and health services researcher at Affiliated Women's Hospital of Jiangnan University. My work focuses on pharmacy practice, pharmacist competency, patient-centered medication communication, and medication safety. I am particularly interested in turning needs observed in routine care into practical, measurable improvements for patients and health systems.
 
-  My research agenda focuses on pharmacist competency development, patient-centered pharmaceutical care, drug information visualization, and AI-assisted pharmacovigilance. I am particularly interested in how real-world clinical workflows can be translated into scalable, evaluable interventions that improve medication safety, communication quality, and implementation feasibility.
-
-  As a practice-based example of this approach, I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. This work informed local pharmaceutical science communication infrastructure and supported recognition as one of the first Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" sites (April 2024).
-
-  My current working papers, under review at *Drug Safety* and *JAMIA*, examine adverse drug reaction detection and reporting from clinical instant messaging using hybrid NLP and confidence-calibrated LLM pipelines. In the long term, I aim to develop rigorous yet implementable methods that connect clinical pharmacy practice, digital health tools, and health system decision-making.
+  My recent work includes developing a pharmacist competency framework for primary healthcare in Wuxi and contributing to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which produced more than 150 medication instruction videos and reached over 850,000 patients. I also contribute to professional coordination through the Wuxi Pharmacists Association. My research connects clinical pharmacy practice, health communication, and implementation-oriented health services research.
 
 affiliations:
   - name: Affiliated Women's Hospital of Jiangnan University
@@ -35,10 +31,13 @@ links:
     label: E-mail Me
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/dongxu-patrick-wang-352495375/
+    label: LinkedIn profile
   - icon: brands/github
     url: https://github.com/Patrick647
+    label: GitHub profile
   - icon: academicons/orcid
     url: https://orcid.org/0009-0005-2881-9872
+    label: ORCID profile
 
 interests:
   - Health Communication & Science Popularization
@@ -61,12 +60,14 @@ education:
       Courses: Physiology, Pathophysiology, Biochemistry, Microbiology, Natural Pharmacochemistry, Medicinal Chemistry, Pharmaceutical Analysis, Pharmacology, Pharmacy.
 
 experience:
-  - role: Pharmacist & Clinical Trial QA Officer
+  - role: Clinical Pharmacist & Clinical Trial QA Officer
     org: Affiliated Women's Hospital of Jiangnan University
     start: 2018-07-01
     summary: |
       Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
       Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
+
+professional_service:
   - role: Committee Member & Executive Secretary
     org: Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association
     start: 2024-06-01

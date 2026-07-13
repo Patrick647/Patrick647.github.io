@@ -25,7 +25,9 @@ author_notes:
 
 date: "2023-10-01"
 
-doi: "10.13664/j.cnki.pcr.2023.05.004"
+hugoblox:
+  ids:
+    doi: "10.13664/j.cnki.pcr.2023.05.004"
 
 publication_types: ["article-journal"]
 

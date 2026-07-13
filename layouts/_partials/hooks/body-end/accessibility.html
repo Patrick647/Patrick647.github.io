@@ -1,0 +1,61 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Expose collection titles as real headings in the accessibility tree.
+    document.querySelectorAll('.blox-collection').forEach((section) => {
+      const intro = Array.from(section.children).find((element) =>
+        element.classList.contains('max-w-prose')
+      );
+      const title = intro?.firstElementChild;
+      if (title) {
+        title.setAttribute('role', 'heading');
+        title.setAttribute('aria-level', '2');
+      }
+    });
+
+    // Keep aria-current only on the active navigation link.
+    document.querySelectorAll('#nav-menu a, [data-te-navbar-nav-ref] a').forEach((link) => {
+      if (link.classList.contains('active')) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+
+    // The standard Hugo Blox menu uses a hidden checkbox and label.
+    // Make its visible trigger keyboard-operable and expose its open state.
+    const navToggle = document.getElementById('nav-toggle');
+    const navTrigger = document.querySelector('label[for="nav-toggle"]');
+    if (navToggle && navTrigger) {
+      const updateNavState = () => {
+        const isOpen = navToggle.checked;
+        navTrigger.setAttribute('aria-expanded', String(isOpen));
+        navTrigger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      };
+
+      navTrigger.setAttribute('role', 'button');
+      navTrigger.setAttribute('tabindex', '0');
+      navTrigger.setAttribute('aria-controls', 'nav-menu');
+      navTrigger.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          navToggle.checked = !navToggle.checked;
+          navToggle.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      });
+      navToggle.addEventListener('change', updateNavState);
+      updateNavState();
+    }
+
+    // The compact navbar already uses a button; synchronize its expanded state.
+    const compactTrigger = document.querySelector('button[data-te-collapse-init]');
+    if (compactTrigger) {
+      const targetId = compactTrigger.getAttribute('aria-controls');
+      const target = targetId ? document.getElementById(targetId) : null;
+      const updateCompactState = () => {
+        compactTrigger.setAttribute('aria-expanded', String(Boolean(target && !target.classList.contains('hidden'))));
+      };
+      compactTrigger.addEventListener('click', () => requestAnimationFrame(updateCompactState));
+      updateCompactState();
+    }
+  });
+</script>

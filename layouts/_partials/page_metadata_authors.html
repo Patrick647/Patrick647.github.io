@@ -11,6 +11,10 @@
     {{- $slug := $raw | urlize -}}
     {{- $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" $raw) -}}
     {{- $termPage := site.GetPage (printf "/authors/%s" $slug) -}}
+    {{- $termURL := "" -}}
+    {{- with $termPage -}}
+      {{- with .RelPermalink -}}{{- $termURL = . -}}{{- end -}}
+    {{- end -}}
     {{- $display := $profile.title | default $raw -}}
     {{- $highlight_name := false -}}
     {{- range $key, $author := site.Data.authors -}}
@@ -24,8 +28,8 @@
 
     {{- if gt $index 0 }}, {{ end -}}
     <span {{ if $highlight_name }}class="font-bold"{{end}}>
-      {{- if $termPage -}}
-        <a href="{{ $termPage.RelPermalink }}">{{ $display }}</a>
+      {{- if $termURL -}}
+        <a href="{{ $termURL }}">{{ $display }}</a>
       {{- else -}}
         {{ $display }}
       {{- end -}}

@@ -21,8 +21,6 @@ author_notes:
 
 date: "2026-02-18"
 
-doi: ""
-
 publication_types: ["working-paper"]
 
 publication: "*Working paper* (under review at *JAMIA*)"
@@ -45,7 +43,9 @@ categories: []
 
 featured: false
 
-url_pdf: "manuscript-2.pdf"
+links:
+  - type: pdf
+    url: manuscript-2.pdf
 url_code: ""
 url_dataset: ""
 url_poster: ""
@@ -72,4 +72,3 @@ Under review at **Journal of the American Medical Informatics Association (JAMIA
 
 - Manuscript version archived here for working paper display on the publications page.
 - Focus: confidence-calibrated LLM-based ADR detection and temporal validation in clinical messaging data.
-

@@ -21,8 +21,6 @@ author_notes:
 
 date: "2026-02-13"
 
-doi: ""
-
 publication_types: ["working-paper"]
 
 publication: "*Working paper* (under review at *Drug Safety*)"
@@ -45,7 +43,9 @@ categories: []
 
 featured: false
 
-url_pdf: "manuscript-1.pdf"
+links:
+  - type: pdf
+    url: manuscript-1.pdf
 url_code: ""
 url_dataset: ""
 url_poster: ""
@@ -72,4 +72,3 @@ Under review at **Drug Safety**.
 
 - Manuscript version archived here for working paper display on the publications page.
 - Topic: ADR detection and reporting from clinical instant messaging using a hybrid rule + LLM pipeline.
-

@@ -56,3 +56,182 @@ nav .nav-link,
 .author-notes {
   cursor: pointer !important;
 }
+
+/* Clear, keyboard-visible focus across navigation and profile actions */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--color-primary-500) !important;
+  outline-offset: 3px !important;
+}
+
+/* Give the mobile menu control a comfortable touch target */
+label[for="nav-toggle"],
+button[data-te-collapse-init] {
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+label[for="nav-toggle"]:hover,
+button[data-te-collapse-init]:hover {
+  background: rgb(243 244 246);
+}
+
+/* Make the current page visible beyond font weight alone */
+.nav-link.active,
+[data-te-nav-link-ref].active {
+  color: var(--color-primary-600) !important;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35rem;
+}
+
+/* Homepage actions */
+.profile-action {
+  min-height: 44px;
+  text-decoration: none !important;
+}
+
+.cv-actions > a,
+.cv-actions > button {
+  min-height: 44px;
+}
+
+/* Publication hierarchy and scanning */
+#published-papers,
+#working-papers {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.blox-collection .mt-16,
+.blox-collection .sm\:mt-20 {
+  margin-top: 2.25rem !important;
+}
+
+.pub-list-item.view-citation {
+  margin-bottom: 0.75rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.75rem;
+  background: rgb(249 250 251 / 0.72);
+  line-height: 1.75;
+}
+
+.publication-title-link {
+  color: var(--color-primary-700);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.publication-title-heading {
+  display: inline;
+  font: inherit;
+}
+
+.publication-title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18rem;
+}
+
+.publication-actions {
+  margin-top: 0.8rem;
+}
+
+.publication-actions .hb-attachment-link {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 !important;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+.publication-actions .hb-attachment-link:hover {
+  border-color: var(--color-primary-500);
+  text-decoration: none;
+}
+
+/* Custom CV blocks already include their own internal spacing. */
+#cv-overview {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+#honors-awards {
+  padding-top: 1.5rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Keep the portrait from taking over the first mobile viewport */
+@media (max-width: 767px) {
+  #about {
+    padding-top: 0.75rem !important;
+  }
+
+  #about .resume-biography {
+    padding-top: 1.75rem;
+  }
+
+  #about .avatar-wrapper {
+    width: 220px !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .profile-actions {
+    justify-content: center;
+  }
+
+  .pub-list-item.view-citation {
+    padding: 1rem;
+  }
+}
+
+/* The CV page doubles as a clean print-to-PDF document. */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  .page-header,
+  .page-footer,
+  .cv-actions {
+    display: none !important;
+  }
+
+  body,
+  .page-wrapper,
+  .home-section-bg,
+  .hbb-section {
+    background: white !important;
+    color: black !important;
+  }
+
+  .resume-experience,
+  .resume-awards {
+    padding: 0 !important;
+  }
+
+  .cv-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .resume-experience article,
+  .resume-awards article,
+  .resume-awards .group {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
