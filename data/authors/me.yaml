@@ -15,16 +15,16 @@ status:
   icon: "💊"
 role: Pharmacist | Researcher
 bio: |
-  Clinical Pharmacist specializing in pharmacy practice and health services research. Currently serving as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), and contributing to professional pharmacy service through the Jiangsu Pharmaceutical Association and Wuxi Pharmacists Association.
+  I am a clinical pharmacist and early-career researcher working at the intersection of pharmacy practice, health services research, and clinical informatics. I currently serve as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), while also contributing to pharmacy policy and professional coordination through the Wuxi Pharmacists Association.
 
-  My research focuses on pharmacist competency development, drug information visualization, patient-centered pharmaceutical care, and health communication. I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. This work supported recognition as one of the first Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" sites in April 2024.
+  My research agenda focuses on pharmacist competency development, patient-centered pharmaceutical care, drug information visualization, and AI-assisted pharmacovigilance. I am particularly interested in how real-world clinical workflows can be translated into scalable, evaluable interventions that improve medication safety, communication quality, and implementation feasibility.
 
-  Committed to bridging pharmaceutical science and public health through practical communication strategies, evidence-based policy research, and measurable improvements in pharmacy service.
+  As a practice-based example of this approach, I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. This work informed local pharmaceutical science communication infrastructure and supported recognition as one of the first Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" sites (April 2024).
+
+  My current working papers, under review at *Drug Safety* and *JAMIA*, examine adverse drug reaction detection and reporting from clinical instant messaging using hybrid NLP and confidence-calibrated LLM pipelines. In the long term, I aim to develop rigorous yet implementable methods that connect clinical pharmacy practice, digital health tools, and health system decision-making.
 
 affiliations:
   - name: Affiliated Women's Hospital of Jiangnan University
-    url: ''
-  - name: Medical Education and Health Promotion Professional Committee, Jiangsu Pharmaceutical Association
     url: ''
   - name: Pharmaceutical Policy Professional Committee of Wuxi Pharmacists Association
     url: ''
@@ -67,14 +67,6 @@ experience:
     summary: |
       Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
       Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
-
-service:
-  - role: Committee Member
-    org: Medical Education and Health Promotion Professional Committee, Jiangsu Pharmaceutical Association
-    start: 2026-04-01
-    summary: |
-      Serve as a committee member in provincial-level pharmacy education and health promotion academic service.
-      Contribute to professional communication around medication education, health promotion, and pharmacist-led public-facing pharmacy services.
   - role: Committee Member & Executive Secretary
     org: Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association
     start: 2024-06-01

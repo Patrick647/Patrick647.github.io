@@ -1,6 +1,5 @@
 ---
 title: "Zero-friction Adverse Drug Reaction Reporting from Clinical Instant Messaging Using Hybrid NLP"
-draft: true
 
 authors:
   - Dongxu Wang
@@ -20,24 +19,20 @@ author_notes:
   - "Corresponding Author"
   - "Corresponding Author"
 
-date: "2026-02-12"
+date: "2026-02-13"
 
 doi: ""
 
-hugoblox:
-  ids:
-    doi: "10.2139/ssrn.6236659"
-
 publication_types: ["working-paper"]
 
-publication: "*SSRN preprint* (under review at *Drug Safety*)"
+publication: "*Working paper* (under review at *Drug Safety*)"
 
-publication_short: "SSRN preprint"
+publication_short: ""
 
 abstract: |
   This manuscript presents a proof-of-concept hybrid NLP pipeline for adverse drug reaction (ADR) signal detection and information extraction from clinical instant messaging data. It combines a keyword-based rule engine with a locally deployed LLM in a zero-shot setting to support low-friction pharmacovigilance reporting workflows.
 
-summary: "SSRN preprint under review at Drug Safety on hybrid NLP for ADR detection from clinical instant messaging."
+summary: "Working paper under review at Drug Safety on hybrid NLP for ADR detection from clinical instant messaging."
 
 tags:
   - Adverse Drug Reactions
@@ -59,12 +54,6 @@ url_slides: ""
 url_source: ""
 url_video: ""
 
-links:
-  - type: source
-    url: https://ssrn.com/abstract=6236659
-  - type: doi
-    url: https://dx.doi.org/10.2139/ssrn.6236659
-
 image:
   caption: ""
   focal_point: ""
@@ -77,13 +66,10 @@ slides: ""
 
 ## Submission Status
 
-Available as an **SSRN preprint** and under review at **Drug Safety**.
-
-SSRN: <https://ssrn.com/abstract=6236659>
-
-DOI: <https://dx.doi.org/10.2139/ssrn.6236659>
+Under review at **Drug Safety**.
 
 ## Notes
 
-- Preprint citation: Wang, Dongxu and Lu, Zihong and Yuan, Wenbo and Yuan, Kaiqiang and Yin, Di and Yao, Yin and Jiang, Sumin. *Zero-Friction Adverse Drug Reaction Reporting From Clinical Instant Messaging Using Hybrid NLP* (February 12, 2026). Available at SSRN: https://ssrn.com/abstract=6236659.
+- Manuscript version archived here for working paper display on the publications page.
 - Topic: ADR detection and reporting from clinical instant messaging using a hybrid rule + LLM pipeline.
+

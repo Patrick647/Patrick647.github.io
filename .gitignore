@@ -3,20 +3,11 @@
 # ============================================================================
 
 # ============================================================================
-# Build Artifacts
+# Hugo Build Artifacts
 # ============================================================================
 
 # Generated site output
 public/
-dist/
-.astro/
-
-# Local Astro redesign experiment (not part of the active Hugo site)
-astro.config.mjs
-tsconfig.json
-src/
-preview-redesign/
-static/media/authors/me.png
 
 # Hugo resources (processed assets)
 resources/

@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: "Pharmacist | Researcher"
     # Site meta description for search engines and social sharing
-    description: "汪东旭 | 江南大学附属妇产医院临床药师 | Clinical Pharmacist specializing in pharmacy practice, health services research, and health communication"
+    description: "汪东旭 | 江南大学附属妇产医院临床药师 | Clinical Pharmacist specializing in pharmacogenomics and health communication"
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""                       # Twitter/X handle for Twitter Cards (without @)

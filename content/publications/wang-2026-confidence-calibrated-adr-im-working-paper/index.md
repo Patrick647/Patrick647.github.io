@@ -1,6 +1,5 @@
 ---
 title: "Confidence-Calibrated LLM Pipeline for Adverse Drug Reaction Detection from Clinical Instant Messaging: Development and Temporal Validation"
-draft: true
 
 authors:
   - Dongxu Wang
@@ -73,3 +72,4 @@ Under review at **Journal of the American Medical Informatics Association (JAMIA
 
 - Manuscript version archived here for working paper display on the publications page.
 - Focus: confidence-calibrated LLM-based ADR detection and temporal validation in clinical messaging data.
+
