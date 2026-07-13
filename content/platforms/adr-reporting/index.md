@@ -1,5 +1,6 @@
 ---
 title: ADR Intelligent Reporting System
+draft: true
 cms_exclude: true
 type: landing
 

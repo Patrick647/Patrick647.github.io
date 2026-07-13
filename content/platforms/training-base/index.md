@@ -1,5 +1,6 @@
 ---
 title: Clinical Pharmacist Training Base
+draft: true
 cms_exclude: true
 type: landing
 

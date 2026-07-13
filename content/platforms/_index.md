@@ -1,5 +1,6 @@
 ---
 title: Platforms
+draft: true
 cms_exclude: true
 type: landing
 

@@ -13,15 +13,13 @@ postnominals:
   - RPh
 status:
   icon: "💊"
-role: Clinical Pharmacist | AI-enabled Clinical Platform Builder
+role: Pharmacist | Researcher
 bio: |
-  I am a clinical pharmacist and early-career researcher working at the intersection of pharmacy practice, clinical informatics, and implementation-oriented AI. I currently serve as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), while building digital systems for medication safety, pharmacist workflow automation, and clinical pharmacy training.
+  Clinical Pharmacist specializing in pharmacy practice and health services research. Currently serving as a Clinical Trial Quality Assurance Officer at Affiliated Women's Hospital of Jiangnan University (Jiangnan University Affiliated Maternity and Child Healthcare Hospital), and contributing to professional pharmacy service through the Jiangsu Pharmaceutical Association and Wuxi Pharmacists Association.
 
-  My current platform portfolio includes an ADR intelligent reporting system, a clinical pharmacist workstation, and a clinical pharmacist training base. These systems combine hospital data integration, rule engines, LLM-assisted extraction, confidence scoring, pharmacist review, pharmacokinetic calculation, and document-grade export workflows.
+  My research focuses on pharmacist competency development, drug information visualization, patient-centered pharmaceutical care, and health communication. I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. This work supported recognition as one of the first Jiangsu Pharmaceutical Association "Pharmacy Science Popularization Base" sites in April 2024.
 
-  My ADR reporting work now includes an SSRN preprint and current manuscripts under review at *Drug Safety* and *JAMIA*, examining adverse drug reaction detection and reporting from clinical instant messaging using hybrid NLP and confidence-calibrated LLM pipelines. My published work on pharmacist competency evaluation supports the education-management logic behind the training-base platform.
-
-  Earlier, I contributed to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which developed more than 150 visualized medication instruction videos and reached over 850,000 patients. I now treat that science-communication work as a foundation for a broader goal: building rigorous yet implementable clinical pharmacy infrastructure.
+  Committed to bridging pharmaceutical science and public health through practical communication strategies, evidence-based policy research, and measurable improvements in pharmacy service.
 
 affiliations:
   - name: Affiliated Women's Hospital of Jiangnan University
@@ -43,9 +41,9 @@ links:
     url: https://orcid.org/0009-0005-2881-9872
 
 interests:
-  - AI-enabled Pharmacovigilance & Medication Safety
-  - Clinical Pharmacy Informatics
-  - Pharmacist Workflow & Training Evaluation
+  - Health Communication & Science Popularization
+  - Pharmacy Practice & Health Services Research
+  - Pharmacist Competency Development
 
 education:
   - degree: MSc Clinical Pharmacology
@@ -68,7 +66,7 @@ experience:
     start: 2018-07-01
     summary: |
       Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
-      Build and maintain AI-enabled clinical pharmacy platforms for ADR reporting, pharmacist workflow automation, patient data integration, TDM/PK support, TPN review, MTM follow-up, clinical pathway review, and training-base management.
+      Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
 
 service:
   - role: Committee Member
