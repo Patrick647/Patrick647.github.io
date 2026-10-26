@@ -301,6 +301,17 @@ button[data-te-collapse-init]:hover {
   cursor: pointer;
 }
 
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+a.cv-print {
+  text-decoration: none;
+}
+
 .cv-print:hover {
   border-color: var(--color-primary-500);
   color: var(--color-primary-700);
@@ -439,6 +450,10 @@ button[data-te-collapse-init]:hover {
 
   .cv-head-aside {
     text-align: left;
+  }
+
+  .cv-actions {
+    justify-content: flex-start;
   }
 
   .cv-name {

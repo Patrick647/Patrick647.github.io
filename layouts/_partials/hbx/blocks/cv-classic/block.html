@@ -47,10 +47,16 @@
       </ul>
     </div>
     <div class="cv-head-aside">
-      <button type="button" class="cv-print" onclick="window.print()">
-        {{ partial "functions/get_icon" (dict "name" "hero/printer" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
-        Print / Save as PDF
-      </button>
+      <div class="cv-actions">
+        <a class="cv-print" href="{{ "uploads/resume.pdf" | relURL }}" download="Wang-Dongxu-CV-zh.pdf" lang="zh-CN">
+          {{ partial "functions/get_icon" (dict "name" "hero/arrow-down-tray" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
+          中文简历 PDF
+        </a>
+        <button type="button" class="cv-print" onclick="window.print()">
+          {{ partial "functions/get_icon" (dict "name" "hero/printer" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
+          Print / Save as PDF
+        </button>
+      </div>
       {{ with $updated }}<p class="cv-updated">Last updated {{ . }}</p>{{ end }}
     </div>
   </header>
