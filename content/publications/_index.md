@@ -25,8 +25,8 @@ sections:
   - block: collection
     id: published-papers
     content:
-      title: Peer-reviewed Publications
-      text: 'Published journal articles and related scholarly outputs.<span class="pub-legend">\* Corresponding author · † Co-first author / equal contribution</span>'
+      title: Published Articles
+      text: 'Journal articles that have been published.<span class="pub-legend">\* Corresponding author · † Co-first author / equal contribution</span>'
       count: 0
       sort_by: Date
       sort_ascending: false

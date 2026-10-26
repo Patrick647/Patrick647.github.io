@@ -114,7 +114,7 @@
   <section class="cv-section" aria-labelledby="cv-publications">
     <h2 id="cv-publications" class="cv-section-title">Publications</h2>
     <p class="cv-legend">* Corresponding author · † Co-first author / equal contribution</p>
-    {{ range $group := slice (dict "title" "Peer-reviewed articles" "items" $published) (dict "title" "Working papers" "items" $working) }}
+    {{ range $group := slice (dict "title" "Published articles" "items" $published) (dict "title" "Working papers" "items" $working) }}
       {{ with $group.items }}
       <h3 class="cv-subhead">{{ $group.title }}</h3>
       {{ range . }}

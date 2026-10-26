@@ -9,7 +9,10 @@
         {{ partial "functions/get_icon" (dict "name" "hero/x-mark" "attributes" "class='w-5 h-5' aria-hidden='true'") }}
       </button>
     </div>
-    <iframe class="pdf-viewer__frame" title="PDF preview"></iframe>
+    <div class="pdf-viewer__body">
+      <div class="pdf-viewer__loading" role="status"><span class="pdf-viewer__spinner" aria-hidden="true"></span>Loading PDF…</div>
+      <iframe class="pdf-viewer__frame" title="PDF preview"></iframe>
+    </div>
   </div>
 </dialog>
 <script>
@@ -33,27 +36,52 @@
   // Mobile browsers cannot scroll a PDF inside an iframe, so touch devices keep the plain new-tab link.
   const canEmbed = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
   const selector = 'a[data-pdf-viewer], .publication-actions a[href$=".pdf"]';
+  const prefetched = new Set();
+
+  const sameOriginUrl = (link) => {
+    const url = new URL(link.getAttribute('href'), window.location.href);
+    return url.origin === window.location.origin ? url : null;
+  };
+
+  // Start downloading on hover so the PDF is usually cached by the time it is clicked.
+  const prefetch = (event) => {
+    const link = event.target.closest?.(selector);
+    if (!link || !canEmbed.matches) return;
+    const url = sameOriginUrl(link);
+    if (!url || prefetched.has(url.href)) return;
+    prefetched.add(url.href);
+    const hint = document.createElement('link');
+    hint.rel = 'prefetch';
+    hint.href = url.href;
+    document.head.appendChild(hint);
+  };
+  document.addEventListener('pointerover', prefetch);
+  document.addEventListener('focusin', prefetch);
 
   document.addEventListener('click', (event) => {
     const link = event.target.closest(selector);
     if (!link || !canEmbed.matches) return;
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const url = new URL(link.getAttribute('href'), window.location.href);
-    if (url.origin !== window.location.origin) return;
+    const url = sameOriginUrl(link);
+    if (!url) return;
     event.preventDefault();
     const heading = link.closest('article')?.querySelector('.publication-title-link');
     title.textContent = link.dataset.pdfTitle || heading?.textContent.trim() || 'PDF';
     openLink.href = url.href;
     downloadLink.href = url.href;
+    dialog.classList.add('is-loading');
     frame.src = url.href;
     dialog.showModal();
   });
 
+  frame.addEventListener('load', () => {
+    dialog.classList.remove('is-loading');
+  });
   dialog.addEventListener('click', (event) => {
     if (event.target === dialog || event.target.closest('[data-pdf-close]')) dialog.close();
   });
   dialog.addEventListener('close', () => {
+    dialog.classList.remove('is-loading');
     frame.src = 'about:blank';
   });
-})();
-</script>
+})();</script>
