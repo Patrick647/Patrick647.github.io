@@ -203,15 +203,260 @@ button[data-te-collapse-init]:hover {
   text-decoration: none;
 }
 
-/* Custom CV blocks already include their own internal spacing. */
-#cv-overview {
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
+/* Classic academic CV (cv-classic block) */
+.cv-classic {
+  --cv-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Songti SC", "Noto Serif SC", serif;
+  --cv-date-col: 8.5rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1rem;
+  color: rgb(31 41 55);
+  line-height: 1.6;
 }
 
-#honors-awards {
-  padding-top: 1.5rem !important;
-  padding-bottom: 2rem !important;
+.cv-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgb(17 24 39);
+}
+
+.cv-name {
+  margin: 0;
+  font-family: var(--cv-serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: rgb(17 24 39);
+}
+
+.cv-postnominals {
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: rgb(75 85 99);
+}
+
+.cv-name-alt {
+  margin: 0.25rem 0 0;
+  font-family: var(--cv-serif);
+  font-size: 1.125rem;
+  letter-spacing: 0.15em;
+  color: rgb(75 85 99);
+}
+
+.cv-role {
+  margin: 0.75rem 0 0;
+  font-size: 1.0625rem;
+  color: rgb(31 41 55);
+}
+
+.cv-affil {
+  margin: 0;
+  color: rgb(75 85 99);
+}
+
+.cv-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+
+.cv-contact a,
+.cv-pub-doi {
+  color: var(--color-primary-700);
+  text-decoration: none;
+}
+
+.cv-contact a:hover,
+.cv-pub-doi:hover,
+.cv-pub-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.cv-head-aside {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.cv-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.5rem;
+  background: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(55 65 81);
+  cursor: pointer;
+}
+
+.cv-print:hover {
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-700);
+}
+
+.cv-updated {
+  margin: 0.5rem 0 0;
+  font-size: 0.8125rem;
+  color: rgb(107 114 128);
+}
+
+.cv-section {
+  margin-top: 2.25rem;
+}
+
+.cv-section-title {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid rgb(209 213 219);
+  font-family: var(--cv-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(17 24 39);
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: var(--cv-date-col) minmax(0, 1fr);
+  column-gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.cv-entry-compact {
+  padding: 0.2rem 0;
+}
+
+.cv-entry-compact.cv-year-start:not(:nth-child(2)) {
+  margin-top: 0.5rem;
+}
+
+.cv-when {
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+  color: rgb(75 85 99);
+}
+
+.cv-when-label {
+  font-weight: 600;
+  color: rgb(55 65 81);
+}
+
+.cv-what {
+  margin: 0;
+}
+
+.cv-entry-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(17 24 39);
+}
+
+.cv-entry-org {
+  margin: 0;
+  font-style: italic;
+  color: rgb(55 65 81);
+}
+
+.cv-entry-title-inline {
+  color: rgb(17 24 39);
+}
+
+.cv-entry-org-inline {
+  color: rgb(75 85 99);
+}
+
+.cv-detail {
+  margin-top: 0.375rem;
+  font-size: 0.9375rem;
+  color: rgb(75 85 99);
+}
+
+.cv-detail p {
+  margin: 0.15rem 0;
+}
+
+.cv-label {
+  font-weight: 600;
+  color: rgb(55 65 81);
+}
+
+.cv-list {
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.cv-list li {
+  margin: 0.1rem 0;
+}
+
+.cv-legend {
+  margin: -0.25rem 0 0.5rem;
+  font-size: 0.8125rem;
+  color: rgb(107 114 128);
+}
+
+.cv-subhead {
+  margin: 1rem 0 0.25rem calc(var(--cv-date-col) + 1.5rem);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgb(55 65 81);
+}
+
+.cv-pub {
+  font-size: 0.9375rem;
+}
+
+.cv-pub-title {
+  font-weight: 600;
+  color: var(--color-primary-700);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .cv-classic {
+    padding-top: 2rem;
+  }
+
+  .cv-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cv-head-aside {
+    text-align: left;
+  }
+
+  .cv-name {
+    font-size: 2rem;
+  }
+
+  .cv-entry {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.1rem;
+  }
+
+  .cv-when:empty {
+    display: none;
+  }
+
+  .cv-subhead {
+    margin-left: 0;
+  }
 }
 
 /* Publication detail page */
@@ -371,6 +616,49 @@ button[data-te-collapse-init]:hover {
   .resume-experience,
   .resume-awards {
     padding: 0 !important;
+  }
+
+  /* CV sizes are rem-based, so scale the root to get ~10pt body text on paper. */
+  html:has(.cv-classic) {
+    font-size: 10pt;
+  }
+
+  .cv-classic {
+    max-width: none;
+    padding: 0;
+    line-height: 1.45;
+  }
+
+  .cv-print {
+    display: none !important;
+  }
+
+  .cv-head {
+    align-items: flex-start;
+  }
+
+  .cv-name {
+    font-size: 22pt;
+  }
+
+  .cv-section {
+    margin-top: 14pt;
+  }
+
+  .cv-section-title,
+  .cv-legend,
+  .cv-subhead {
+    break-after: avoid;
+  }
+
+  .cv-entry {
+    break-inside: avoid;
+  }
+
+  .cv-contact a,
+  .cv-pub-title,
+  .cv-pub-doi {
+    color: black !important;
   }
 
   .cv-header {

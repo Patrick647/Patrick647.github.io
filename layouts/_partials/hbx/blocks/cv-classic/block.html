@@ -1,0 +1,224 @@
+{{/* Classic single-column academic CV: dates on the left, content on the right, prints to A4. */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $slug := "me" }}
+{{ with index $content "username" }}{{ $slug = printf "%v" . }}{{ end }}
+{{ $profile := partial "functions/get_author_profile" $slug }}
+{{ $data := index site.Data.authors $slug | default dict }}
+{{ $updated := "" }}
+{{ with index $content "updated" }}{{ $updated = printf "%v" . }}{{ end }}
+
+{{ $published := slice }}
+{{ $working := slice }}
+{{ range sort (where site.RegularPages "Section" "publications") "Date" "desc" }}
+  {{ if in (.Params.publication_types | default slice) "working-paper" }}
+    {{ $working = $working | append . }}
+  {{ else }}
+    {{ $published = $published | append . }}
+  {{ end }}
+{{ end }}
+
+<div class="cv-classic">
+
+  <header class="cv-head">
+    <div class="cv-head-main">
+      <h1 class="cv-name">
+        {{- $profile.title -}}
+        {{- with $data.postnominals }}<span class="cv-postnominals">, {{ delimit . ", " }}</span>{{ end -}}
+      </h1>
+      {{ with $data.name.alternate }}<p class="cv-name-alt" lang="zh-CN">{{ . }}</p>{{ end }}
+      {{ with $profile.role }}<p class="cv-role">{{ . }}</p>{{ end }}
+      {{ with $data.affiliations }}{{ with index . 0 }}<p class="cv-affil">{{ .name }}</p>{{ end }}{{ end }}
+      <ul class="cv-contact" aria-label="Contact">
+        {{ range $data.links }}
+          {{ $url := printf "%v" .url }}
+          {{ $label := $url | replaceRE `^https?://(www\.)?` "" | strings.TrimSuffix "/" }}
+          {{ if hasPrefix $url "mailto:" }}
+            {{ $label = strings.TrimPrefix "mailto:" $url }}
+          {{ else if in $url "linkedin.com" }}
+            {{ $label = "LinkedIn" }}
+          {{ end }}
+          <li><a href="{{ $url | safeURL }}"{{ if hasPrefix $url "http" }} target="_blank" rel="noopener"{{ end }}>{{ $label }}</a></li>
+        {{ end }}
+        <li><a href="{{ "/" | relURL }}">{{ site.BaseURL | replaceRE `^https?://` "" | strings.TrimSuffix "/" }}</a></li>
+      </ul>
+    </div>
+    <div class="cv-head-aside">
+      <button type="button" class="cv-print" onclick="window.print()">
+        {{ partial "functions/get_icon" (dict "name" "hero/printer" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
+        Print / Save as PDF
+      </button>
+      {{ with $updated }}<p class="cv-updated">Last updated {{ . }}</p>{{ end }}
+    </div>
+  </header>
+
+  {{ with $profile.interests }}
+  <section class="cv-section" aria-labelledby="cv-interests">
+    <h2 id="cv-interests" class="cv-section-title">Research Interests</h2>
+    <div class="cv-entry">
+      <div class="cv-when"></div>
+      <ul class="cv-what cv-list">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $profile.education }}
+  <section class="cv-section" aria-labelledby="cv-education">
+    <h2 id="cv-education" class="cv-section-title">Education</h2>
+    {{ range . }}
+    <div class="cv-entry">
+      <div class="cv-when">
+        {{- with .start }}{{ (time .).Format "2006" }}{{ end -}}
+        {{- with .end }} – {{ (time .).Format "2006" }}{{ end -}}
+      </div>
+      <div class="cv-what">
+        <h3 class="cv-entry-title">{{ .degree | default .area }}</h3>
+        <p class="cv-entry-org">{{ .institution | default .school }}</p>
+        {{ with .summary }}{{ partial "cv/detail" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $profile.experience }}
+  <section class="cv-section" aria-labelledby="cv-experience">
+    <h2 id="cv-experience" class="cv-section-title">Professional Experience</h2>
+    {{ range . }}
+    <div class="cv-entry">
+      <div class="cv-when">
+        {{- with .start }}{{ (time .).Format "2006" }}{{ end }} – {{ with .end }}{{ (time .).Format "2006" }}{{ else }}present{{ end -}}
+      </div>
+      <div class="cv-what">
+        <h3 class="cv-entry-title">{{ .role | default .title }}</h3>
+        <p class="cv-entry-org">{{ .org | default .company }}</p>
+        {{ with .summary }}{{ partial "cv/detail" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ if or $published $working }}
+  <section class="cv-section" aria-labelledby="cv-publications">
+    <h2 id="cv-publications" class="cv-section-title">Publications</h2>
+    <p class="cv-legend">* Corresponding author · † Co-first author / equal contribution</p>
+    {{ range $group := slice (dict "title" "Peer-reviewed articles" "items" $published) (dict "title" "Working papers" "items" $working) }}
+      {{ with $group.items }}
+      <h3 class="cv-subhead">{{ $group.title }}</h3>
+      {{ range . }}
+      <div class="cv-entry cv-entry-pub">
+        <div class="cv-when">{{ .Date.Format "2006" }}</div>
+        <p class="cv-what cv-pub">
+          <span class="cv-pub-authors">{{ partial "page_metadata_authors" . }}</span>.
+          <a class="cv-pub-title" href="{{ .RelPermalink }}">{{ .Title }}</a>.
+          {{ with .Params.publication }}{{ . | markdownify }}.{{ end }}
+          {{ with .Params.hugoblox }}{{ with .ids }}{{ with .doi }}<a class="cv-pub-doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">doi:{{ . }}</a>{{ end }}{{ end }}{{ end }}
+        </p>
+      </div>
+      {{ end }}
+      {{ end }}
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $profile.awards }}
+  <section class="cv-section" aria-labelledby="cv-awards">
+    <h2 id="cv-awards" class="cv-section-title">Honors &amp; Awards</h2>
+    {{ $prev := "" }}
+    {{ range sort . "date" "desc" }}
+      {{ $year := (time .date).Format "2006" }}
+      <div class="cv-entry cv-entry-compact{{ if ne $year $prev }} cv-year-start{{ end }}">
+        <div class="cv-when">{{ if ne $year $prev }}{{ $year }}{{ end }}</div>
+        <p class="cv-what">
+          <span class="cv-entry-title-inline">{{ .title }}</span>
+          {{- with .awarder }}<span class="cv-entry-org-inline">, {{ . }}</span>{{ end }}
+        </p>
+      </div>
+      {{ $prev = $year }}
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $data.professional_service }}
+  <section class="cv-section" aria-labelledby="cv-service">
+    <h2 id="cv-service" class="cv-section-title">Professional Service</h2>
+    {{ range . }}
+    <div class="cv-entry">
+      <div class="cv-when">
+        {{- with .start }}{{ (time .).Format "2006" }}{{ end }} – {{ with .end }}{{ (time .).Format "2006" }}{{ else }}present{{ end -}}
+      </div>
+      <div class="cv-what">
+        <h3 class="cv-entry-title">{{ .role }}</h3>
+        <p class="cv-entry-org">{{ .org }}</p>
+        {{ with .summary }}{{ partial "cv/detail" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $data.certifications }}
+  <section class="cv-section" aria-labelledby="cv-credentials">
+    <h2 id="cv-credentials" class="cv-section-title">Licenses &amp; Certifications</h2>
+    {{ range sort . "date" "desc" }}
+    <div class="cv-entry cv-entry-compact">
+      <div class="cv-when">{{ with .date }}{{ (time .).Format "2006" }}{{ end }}</div>
+      <p class="cv-what">
+        <span class="cv-entry-title-inline">{{ .title }}</span>
+        {{- with .awarder }}<span class="cv-entry-org-inline">, {{ . }}</span>{{ end }}
+      </p>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $data.patents }}
+  <section class="cv-section" aria-labelledby="cv-ip">
+    <h2 id="cv-ip" class="cv-section-title">Patents &amp; Software Copyrights</h2>
+    {{ range sort . "date" "desc" }}
+    <div class="cv-entry cv-entry-compact">
+      <div class="cv-when">{{ with .date }}{{ (time .).Format "2006" }}{{ end }}</div>
+      <p class="cv-what">
+        <span class="cv-entry-title-inline">{{ .title }}</span>
+        {{- "" }}<span class="cv-entry-org-inline">, {{ .type }}{{ with .number }} {{ . }}{{ end }}</span>
+      </p>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $data.skills }}
+  <section class="cv-section" aria-labelledby="cv-skills">
+    <h2 id="cv-skills" class="cv-section-title">Skills</h2>
+    {{ range . }}
+    <div class="cv-entry cv-entry-compact">
+      <div class="cv-when cv-when-label">{{ .name }}</div>
+      <p class="cv-what">
+        {{- $labels := slice -}}
+        {{- range .items }}{{ $labels = $labels | append (printf "%v" (.label | default .)) }}{{ end -}}
+        {{- delimit $labels ", " -}}
+      </p>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $data.languages }}
+  <section class="cv-section" aria-labelledby="cv-languages">
+    <h2 id="cv-languages" class="cv-section-title">Languages</h2>
+    {{ range . }}
+    <div class="cv-entry cv-entry-compact">
+      <div class="cv-when cv-when-label">{{ .name }}</div>
+      <p class="cv-what">{{ .label }}</p>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+</div>

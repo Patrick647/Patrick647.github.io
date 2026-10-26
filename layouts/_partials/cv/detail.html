@@ -1,0 +1,15 @@
+{{- /* Renders a multi-line CV summary: one paragraph per line, a leading "Label:" is emphasised. */ -}}
+<div class="cv-detail">
+{{- range split (strings.TrimSpace (printf "%v" .)) "\n" -}}
+  {{- $line := strings.TrimSpace . -}}
+  {{- if $line -}}
+    {{- $m := findRESubmatch `^([A-Z][A-Za-z ]{1,24}):\s+` $line 1 -}}
+    {{- if $m -}}
+      {{- $match := index $m 0 -}}
+      <p><span class="cv-label">{{ index $match 1 }}:</span> {{ strings.TrimPrefix (index $match 0) $line | markdownify }}</p>
+    {{- else -}}
+      <p>{{ $line | markdownify }}</p>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+</div>
