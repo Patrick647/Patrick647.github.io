@@ -1,0 +1,152 @@
+@page { size: 216mm 291mm; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Times New Roman", Times, serif;
+  color: #231f20;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  background: #fff;
+}
+@media screen { body { background: #888; } .page { margin: 0 auto 12pt; } }
+
+.page {
+  position: relative; width: 612.283pt; height: 824.5pt; overflow: hidden;
+  background: #fff; break-after: page; page-break-after: always;
+}
+.page:last-child { break-after: auto; page-break-after: auto; }
+
+/* ---------- running header ---------- */
+.band { position: absolute; top: 0; height: 43.5pt; background: #e6f4cc; }
+.band-line { position: absolute; top: 43.5pt; height: 0.6pt; background: #66c87f; }
+.strip { position: absolute; top: 44pt; height: 5.5pt; background: #edf8e5; }
+.tab { position: absolute; top: 0; height: 44pt; background: #66c87f; color: #fff; }
+.odd .band, .odd .band-line { left: 65pt; width: 488pt; }
+.odd .strip { left: 65pt; width: 547.3pt; }
+.odd .tab { left: 553pt; width: 59.3pt; }
+.odd .tab .logo {
+  position: absolute; left: 11pt; top: 19pt; font-family: "Heiti SC", "PingFang SC", sans-serif;
+  font-weight: bold; font-size: 11.3pt; line-height: 11pt; letter-spacing: 0.4pt;
+}
+.jname { position: absolute; right: 62.5pt; top: 21.6pt; text-align: right; color: #231f20; }
+.jname .cn { font-family: "Heiti SC", "PingFang SC", sans-serif; font-size: 8.6pt; line-height: 10.5pt; }
+.jname .en { font-family: "Helvetica Neue", Arial, sans-serif; font-style: italic; font-size: 8.1pt; line-height: 10.6pt; }
+.even .tab { left: 0; width: 59pt; }
+.even .band, .even .band-line { left: 59pt; width: 488pt; }
+.even .strip { left: 0; width: 547pt; }
+.even .tab .vol {
+  position: absolute; right: 2pt; top: 19.5pt; text-align: right; font-family: Arial, sans-serif;
+  font-weight: bold; font-size: 8.6pt; line-height: 10.8pt;
+}
+.rtitle {
+  position: absolute; left: 62pt; top: 31pt; width: 483pt; white-space: nowrap;
+  font-family: Arial, "Helvetica Neue", sans-serif; font-weight: bold; font-size: 7.9pt; line-height: 10pt;
+  color: #231f20;
+}
+
+/* ---------- page number tab ---------- */
+.pno {
+  position: absolute; top: 774pt; height: 51pt; width: 28.5pt; background: #f3faee;
+  font-size: 10.5pt; text-align: center; padding-top: 6.5pt; line-height: 12pt;
+}
+.odd .pno { left: 518.5pt; }
+.even .pno { left: 65pt; }
+
+/* ---------- body columns ---------- */
+.col { position: absolute; width: 230.4pt; overflow: hidden; }
+.col.l { left: 65.2pt; }
+.col.r { left: 316.6pt; }
+.crule { position: absolute; left: 305.8pt; width: 0.5pt; background: #d9f1d9; }
+
+.col p, #flow p {
+  margin: 0; font-size: 9.6pt; line-height: 12.7pt; text-align: justify; text-indent: 1.6em;
+  hyphens: auto; -webkit-hyphens: auto;
+}
+p.cont { text-indent: 0; }
+p.split-head { text-align-last: justify; }
+p.noind { text-indent: 0; }
+sup { font-size: 0.68em; line-height: 0; vertical-align: 0.5em; }
+sub { font-size: 0.68em; line-height: 0; vertical-align: -0.2em; }
+
+h2.sec {
+  display: block; width: fit-content; margin: 6.5pt 0 5pt -2.6pt; padding: 1.6pt 4pt 1.4pt 2.6pt;
+  background: #e6f4cc; font-family: Arial, "Helvetica Neue", sans-serif; font-weight: bold;
+  font-size: 10.6pt; line-height: 13pt; color: #231f20;
+}
+h2.sec .n { margin-right: 9pt; }
+h2.sec.first { margin-top: 0; }
+h3.sub {
+  margin: 1.5pt 0 0.5pt; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 500;
+  font-size: 9.6pt; line-height: 12.7pt; color: #2cb04d;
+}
+h3.sub .n { margin-right: 7pt; }
+.lead3 { color: #2cb04d; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 500; margin-right: 5pt; }
+
+/* ---------- page 1 front matter ---------- */
+.front { position: absolute; left: 65.2pt; width: 481.9pt; top: 90pt; }
+.front h1 {
+  margin: 0 12pt; text-align: center; font-weight: bold; font-size: 15.6pt; line-height: 19.5pt;
+}
+.front .authors { margin: 9pt 0 0; text-align: center; font-size: 10.6pt; line-height: 13pt; }
+.front .affil {
+  margin: 4pt 16pt 0; text-align: center; font-style: italic; font-size: 8.1pt; line-height: 10.4pt;
+}
+.abstract {
+  margin: 13pt 17.8pt 0; padding: 5pt 6.6pt 6pt 6.2pt; background: #edf8e5; border: 0.6pt solid #e2f1c8;
+  font-size: 9pt; line-height: 12.4pt; text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.abstract p { margin: 0; }
+.abstract .ab { text-indent: 1.6em; }
+.abstract .lab { font-family: Arial, "Helvetica Neue", sans-serif; font-weight: bold; font-size: 8.6pt; }
+.abstract .h { margin-right: 6pt; }
+.abstract .kw, .abstract .meta { padding-left: 1.6em; }
+.abstract .kw { text-indent: -0pt; }
+.abstract .meta .lab { margin-right: 4pt; }
+.abstract .meta .gap { display: inline-block; width: 18pt; }
+
+.footnote { position: absolute; left: 65.2pt; width: 230.4pt; }
+.fnrule { width: 105pt; height: 0.5pt; background: #231f20; margin-bottom: 2pt; }
+.fnrow { display: grid; grid-template-columns: 90pt 1fr; font-size: 7.4pt; line-height: 9.6pt; }
+.fnrow .fl { font-family: Arial, "Helvetica Neue", sans-serif; font-weight: bold; font-size: 6.9pt; position: relative; padding-left: 8pt; }
+.fnrow .fl .ast { position: absolute; left: 0; font-style: normal; }
+.fnrow .fl2 { font-family: Arial, "Helvetica Neue", sans-serif; font-weight: bold; font-size: 6.9pt; margin: 0 4pt 0 10pt; }
+
+/* ---------- tables ---------- */
+table.tl { width: 100%; border-collapse: collapse; font-size: 7.6pt; line-height: 10pt; }
+table.tl caption, table.tl td.cap {
+  background: #fbc961; font-family: Arial, "Helvetica Neue", sans-serif; font-weight: bold; text-align: center;
+  font-size: 7.6pt; padding: 2.4pt 4pt 2.2pt; border-bottom: 0.5pt solid #656263;
+}
+table.tl caption { caption-side: top; }
+table.tl thead th {
+  background: #fffbb3; font-weight: normal; padding: 1.6pt 3pt 1.4pt; border-bottom: 0.8pt solid #656263;
+}
+table.tl tbody td { background: #fffdd9; padding: 1.3pt 3pt 1.1pt; vertical-align: middle; }
+table.tl tbody tr:last-child td { border-bottom: 0.9pt solid #656263; }
+table.tl td.gs { border-top: 0.5pt solid #656263; }
+.tblwrap { margin: 5pt 0 6pt; }
+.t1 td, .t1 th { text-align: center; }
+.t1 td.num { text-align: right; padding-right: 7pt; }
+.t1 .lvl { text-align: left; padding-left: 6pt; }
+
+.t3box { position: absolute; left: 65.2pt; width: 481.9pt; }
+table.tl.t3 { font-size: 7.1pt; line-height: 8.7pt; }
+table.tl.t3 tbody td { vertical-align: middle; padding: 0.9pt 3pt 0.7pt; }
+.t3 td.pri { text-align: left; padding-left: 3pt; vertical-align: middle; }
+.t3 td.sec2 { padding-left: 3pt; }
+table.tl.t3 { table-layout: fixed; }
+.t3 .hd { display: flex; }
+.t3 .hn { flex: 0 0 13pt; }
+
+/* ---------- references ---------- */
+.refhead {
+  margin: 9pt 0 6pt; text-align: center; font-family: Arial, "Helvetica Neue", sans-serif;
+  font-weight: bold; font-size: 9.6pt; line-height: 12pt;
+}
+.col p.ref, #flow p.ref {
+  font-size: 7.5pt; line-height: 10.1pt; text-indent: 0; padding-left: 19pt; position: relative;
+  margin-bottom: 1.2pt; text-align: justify; hyphens: manual; -webkit-hyphens: manual; overflow-wrap: anywhere;
+}
+p.ref .rn { position: absolute; left: 0; }
+p.ref .url { word-break: normal; }
+.col p.ref.left, #flow p.ref.left { text-align: left; }
+p.ref i { font-style: italic; }

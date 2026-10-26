@@ -38,6 +38,13 @@
   {{ if or $has_attachments $abstract }}
   <nav class="publication-actions flex flex-wrap gap-3" aria-label="Resources for {{ $item.Title }}">
     {{ if $has_attachments }}{{ partial "page_links" (dict "page" $item "is_list" 1) }}{{ end }}
+    {{/* Papers published in Chinese: <slug>.pdf is the English translation, <slug>-zh.pdf the original. */}}
+    {{ with $item.File }}{{ with $item.Resources.GetMatch (printf "%s-zh.pdf" .ContentBaseName) }}
+    <a class="hb-attachment-link hb-attachment-link-small" href="{{ .RelPermalink }}" target="_blank" rel="noopener" lang="zh-CN" data-pdf-viewer data-pdf-title="{{ $item.Title }}（中文原文）">
+      {{ partial "functions/get_icon" (dict "name" "hero/language" "attributes" "style=\"height: 1em\" class='inline-block' aria-hidden='true'") }}
+      中文原文
+    </a>
+    {{ end }}{{ end }}
     {{ with $abstract }}
     <button type="button" class="hb-attachment-link hb-attachment-link-small pub-abstract-toggle" aria-expanded="false" aria-controls="{{ $abstract_id }}">
       {{ partial "functions/get_icon" (dict "name" "hero/chevron-down" "attributes" "style=\"height: 1em\" class='inline-block pub-abstract-chevron' aria-hidden='true'") }}

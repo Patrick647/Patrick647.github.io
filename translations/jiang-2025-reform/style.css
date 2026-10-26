@@ -1,0 +1,169 @@
+@page { size: 603.78pt 824.882pt; margin: 0; }
+
+html, body { margin: 0; padding: 0; }
+body {
+  color: #231f20;
+  font-family: "Times New Roman", Times, serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  position: relative;
+  width: 603.78pt;
+  height: 824.882pt;
+  overflow: hidden;
+  break-after: page;
+  background: #fff;
+}
+.page:last-child { break-after: auto; }
+
+/* Original mirrors the text block: odd pages 56.7-538.6pt, even pages 65.2-547.1pt. */
+.odd  { --left: 56.7pt; --right: 65.2pt; }
+.even { --left: 65.2pt; --right: 56.7pt; }
+
+.runhead {
+  position: absolute;
+  top: 46.5pt;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 9pt;
+  line-height: 12pt;
+  letter-spacing: 0.1pt;
+}
+.odd .runhead  { right: 61.6pt; }
+.even .runhead { left: 56.7pt; }
+.runhead .sq {
+  display: inline-block;
+  width: 5.4pt; height: 5.4pt;
+  background: #8c8c8c;
+  vertical-align: 1pt;
+}
+.odd .runhead .sq  { margin-right: 3pt; }
+.even .runhead .sq { margin-left: 3pt; }
+
+.folio {
+  position: absolute;
+  top: 779.5pt;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: 12.5pt;
+  line-height: 14pt;
+}
+.odd .folio  { right: 53.4pt; }
+.even .folio { left: 54.1pt; }
+
+/* ---------- Title block (page 1) ---------- */
+.front {
+  position: absolute;
+  top: 74pt;
+  left: var(--left);
+  right: var(--right);
+}
+.title {
+  margin: 0;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20.5pt;
+  line-height: 26pt;
+  letter-spacing: -0.1pt;
+}
+.authors {
+  margin: 15pt 0 0;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 11pt;
+  line-height: 14pt;
+}
+.affil {
+  margin: 3.5pt 0 0;
+  text-align: center;
+  font-size: 9pt;
+  line-height: 12pt;
+}
+.abstract { margin-top: 28pt; }
+.abstract p {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 14pt;
+  text-align: justify;
+  hyphens: auto;
+}
+.abstract p:first-child { text-indent: 18.4pt; }
+.abstract .kw { text-indent: 18.4pt; }
+.abstract .lab {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 9.5pt;
+  margin-right: 1pt;
+}
+
+/* ---------- Two-column body ---------- */
+.body {
+  position: absolute;
+  left: var(--left);
+  right: var(--right);
+  column-count: 2;
+  column-gap: 16.9pt;
+  column-fill: auto;
+  overflow: hidden;
+  font-size: 9.7pt;
+  line-height: 13.9pt;
+  text-align: justify;
+  hyphens: auto;
+  orphans: 2;
+  widows: 2;
+}
+.body.last { column-fill: balance; }
+
+.body p {
+  margin: 0;
+  text-indent: 21.5pt;
+}
+.body p.cont { text-indent: 0; }
+.body p.split-head { text-align-last: justify; }
+
+sup {
+  font-size: 6.5pt;
+  line-height: 0;
+  vertical-align: 3.6pt;
+  margin-left: 0.6pt;
+}
+
+.body h2 {
+  margin: 13pt 0 3pt;
+  font-size: 13pt;
+  line-height: 17pt;
+  font-weight: 700;
+  text-align: left;
+  break-after: avoid;
+}
+.body h2:first-child { margin-top: 0; }
+.body h3 {
+  margin: 1.5pt 0 1pt;
+  padding-left: 21.5pt;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 9.8pt;
+  line-height: 14pt;
+  text-align: left;
+  break-after: avoid;
+}
+.body h3:first-child { margin-top: 0; }
+
+.body h4.refh {
+  margin: 20pt 0 4pt;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 10pt;
+  line-height: 14pt;
+  break-after: avoid;
+}
+.body p.ref {
+  font-size: 8.5pt;
+  line-height: 13pt;
+  text-indent: 17pt;
+  hyphens: manual;
+}
