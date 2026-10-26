@@ -13,11 +13,11 @@ postnominals:
   - RPh
 status:
   icon: "💊"
-role: Clinical Pharmacist | Health Services Researcher
+role: Informatics Pharmacist | Health Services Researcher
 bio: |
-  I am a clinical pharmacist and health services researcher at Affiliated Women's Hospital of Jiangnan University. My work focuses on pharmacy practice, pharmacist competency, patient-centered medication communication, and medication safety. I am particularly interested in turning needs observed in routine care into practical, measurable improvements for patients and health systems.
+  I am an informatics pharmacist and health services researcher at Affiliated Women's Hospital of Jiangnan University. My work focuses on pharmacy practice, pharmacist competency, patient-centered medication communication, and medication safety. I am particularly interested in turning needs observed in routine care into practical, measurable improvements for patients and health systems.
 
-  My recent work includes developing a pharmacist competency framework for primary healthcare in Wuxi and contributing to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which produced more than 150 medication instruction videos and reached over 850,000 patients. I also contribute to professional coordination through the Wuxi Pharmacists Association. My research connects clinical pharmacy practice, health communication, and implementation-oriented health services research.
+  My recent work includes developing a pharmacist competency framework for primary healthcare in Wuxi and contributing to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which produced more than 150 medication instruction videos and reached over 850,000 patients. I also contribute to professional coordination through the Wuxi Pharmacists Association. My research connects pharmacy practice, pharmacy informatics, health communication, and implementation-oriented health services research.
 
 affiliations:
   - name: Affiliated Women's Hospital of Jiangnan University
@@ -60,7 +60,7 @@ education:
       Courses: Physiology, Pathophysiology, Biochemistry, Microbiology, Natural Pharmacochemistry, Medicinal Chemistry, Pharmaceutical Analysis, Pharmacology, Pharmacy.
 
 experience:
-  - role: Clinical Pharmacist (Pharmacist-in-Charge)
+  - role: Informatics Pharmacist (Pharmacist-in-Charge)
     org: Affiliated Women's Hospital of Jiangnan University
     start: 2018-07-01
     summary: |

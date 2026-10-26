@@ -19,9 +19,9 @@ hugoblox:
     # Schema.org type for structured data
     type: person                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: "Clinical Pharmacist | Health Services Researcher"
+    tagline: "Informatics Pharmacist | Health Services Researcher"
     # Site meta description for search engines and social sharing
-    description: "汪东旭 | 江南大学附属妇产医院临床药师 | Clinical Pharmacist specializing in pharmacogenomics and health communication"
+    description: "汪东旭 | 江南大学附属妇产医院信息药师 | Informatics Pharmacist specializing in pharmacy informatics, medication safety, and health communication"
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""                       # Twitter/X handle for Twitter Cards (without @)
