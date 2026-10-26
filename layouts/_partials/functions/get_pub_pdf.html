@@ -1,0 +1,17 @@
+{{/* Return the RelPermalink of a publication's PDF, or "" when it has none. */}}
+{{ $page := . }}
+{{ $url := "" }}
+{{ range $page.Params.links }}
+  {{ if and (not $url) (eq .type "pdf") .url }}
+    {{ with $page.Resources.GetMatch .url }}{{ $url = .RelPermalink }}{{ else }}{{ $url = .url | relURL }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $url }}
+  {{ with $page.File }}
+    {{ with $page.Resources.GetMatch (printf "%s.pdf" .ContentBaseName) }}{{ $url = .RelPermalink }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $url }}
+  {{ with $page.Params.url_pdf }}{{ $url = . | relURL }}{{ end }}
+{{ end }}
+{{ return $url }}

@@ -1,0 +1,15 @@
+{{/* Structured abstract: each "Objective/Methods/Results/Conclusion:" label starts a paragraph and is set as a run-in heading. */}}
+{{ $text := strings.TrimSpace (replace . "\r\n" "\n") }}
+{{ $text = replaceRE `\s+((?i:methods?|results?|conclusions?))\s*[:：]\s*` "\n\n$1: " $text }}
+{{ range split $text "\n\n" }}
+  {{ $para := strings.TrimSpace . }}
+  {{ if $para }}
+    {{ $m := findRESubmatch `(?i)^(objectives?|background|aims?|purpose|methods?|results?|conclusions?|significance)\s*[:：]\s*` $para 1 }}
+    {{ if $m }}
+      {{ $match := index $m 0 }}
+      <p><strong class="pub-abstract-label">{{ index $match 1 }}</strong> {{ strings.TrimPrefix (index $match 0) $para | markdownify }}</p>
+    {{ else }}
+      <p>{{ $para | markdownify }}</p>
+    {{ end }}
+  {{ end }}
+{{ end }}

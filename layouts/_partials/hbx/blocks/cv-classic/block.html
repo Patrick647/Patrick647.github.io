@@ -122,7 +122,7 @@
         <div class="cv-when">{{ .Date.Format "2006" }}</div>
         <p class="cv-what cv-pub">
           <span class="cv-pub-authors">{{ partial "page_metadata_authors" . }}</span>.
-          <a class="cv-pub-title" href="{{ .RelPermalink }}">{{ .Title }}</a>.
+          {{ partial "pub_title_link" (dict "item" . "class" "cv-pub-title") }}.
           {{ with .Params.publication }}{{ . | markdownify }}.{{ end }}
           {{ with .Params.hugoblox }}{{ with .ids }}{{ with .doi }}<a class="cv-pub-doi" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">doi:{{ . }}</a>{{ end }}{{ end }}{{ end }}
         </p>

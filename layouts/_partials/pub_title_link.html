@@ -1,0 +1,13 @@
+{{- /* Publication title linking to its PDF (opened by the PDF viewer), else its DOI, else plain text. */ -}}
+{{- $item := .item -}}
+{{- $class := .class -}}
+{{- $pdf := partial "functions/get_pub_pdf" $item -}}
+{{- $doi := $item.Params.doi -}}
+{{- with $item.Params.hugoblox }}{{ with .ids }}{{ with .doi }}{{ $doi = . }}{{ end }}{{ end }}{{ end -}}
+{{- if $pdf -}}
+<a href="{{ $pdf }}" class="{{ $class }}" target="_blank" rel="noopener" data-pdf-viewer data-pdf-title="{{ $item.Title }}">{{ $item.Title }}</a>
+{{- else if $doi -}}
+<a href="https://doi.org/{{ $doi }}" class="{{ $class }}" target="_blank" rel="noopener">{{ $item.Title }}</a>
+{{- else -}}
+<span class="{{ $class }}">{{ $item.Title }}</span>
+{{- end -}}

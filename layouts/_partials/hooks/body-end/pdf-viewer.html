@@ -1,0 +1,59 @@
+{{/* PDF pop-up viewer for publication links, plus the abstract toggles on publication lists. */}}
+<dialog id="pdf-viewer" class="pdf-viewer" aria-labelledby="pdf-viewer-title">
+  <div class="pdf-viewer__inner" tabindex="-1" autofocus>
+    <div class="pdf-viewer__bar">
+      <p id="pdf-viewer-title" class="pdf-viewer__title"></p>
+      <a class="pdf-viewer__btn" data-pdf-open href="#" target="_blank" rel="noopener">Open in new tab</a>
+      <a class="pdf-viewer__btn" data-pdf-download href="#" download>Download</a>
+      <button type="button" class="pdf-viewer__btn pdf-viewer__close" data-pdf-close aria-label="Close">
+        {{ partial "functions/get_icon" (dict "name" "hero/x-mark" "attributes" "class='w-5 h-5' aria-hidden='true'") }}
+      </button>
+    </div>
+    <iframe class="pdf-viewer__frame" title="PDF preview"></iframe>
+  </div>
+</dialog>
+<script>
+(() => {
+  document.addEventListener('click', (event) => {
+    const toggle = event.target.closest('.pub-abstract-toggle');
+    if (!toggle) return;
+    const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+    if (!panel) return;
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  });
+
+  const dialog = document.getElementById('pdf-viewer');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  const frame = dialog.querySelector('.pdf-viewer__frame');
+  const title = dialog.querySelector('.pdf-viewer__title');
+  const openLink = dialog.querySelector('[data-pdf-open]');
+  const downloadLink = dialog.querySelector('[data-pdf-download]');
+  // Mobile browsers cannot scroll a PDF inside an iframe, so touch devices keep the plain new-tab link.
+  const canEmbed = window.matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
+  const selector = 'a[data-pdf-viewer], .publication-actions a[href$=".pdf"]';
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest(selector);
+    if (!link || !canEmbed.matches) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const url = new URL(link.getAttribute('href'), window.location.href);
+    if (url.origin !== window.location.origin) return;
+    event.preventDefault();
+    const heading = link.closest('article')?.querySelector('.publication-title-link');
+    title.textContent = link.dataset.pdfTitle || heading?.textContent.trim() || 'PDF';
+    openLink.href = url.href;
+    downloadLink.href = url.href;
+    frame.src = url.href;
+    dialog.showModal();
+  });
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog || event.target.closest('[data-pdf-close]')) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    frame.src = 'about:blank';
+  });
+})();
+</script>

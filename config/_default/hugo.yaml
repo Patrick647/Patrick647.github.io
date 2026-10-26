@@ -26,6 +26,13 @@ cascade:
       path: /slides/**
       kind: page
     outputs: [HTML, present]
+  # Tag/type pages only listed publication detail pages, which are not rendered either.
+  # They must still exist: collection filters such as exclude_publication_type query them.
+  - target:
+      kind: '{taxonomy,term}'
+    build:
+      render: never
+      list: always
 
 ############################
 ## ADVANCED
@@ -43,8 +50,9 @@ footnotereturnlinkcontents: <sup>^</sup>
 ignoreFiles: [".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 disableAliases: true
 outputs:
-  home: [HTML, RSS, headers, redirects, backlinks]
-  section: [HTML, RSS]
+  # No RSS: the site has no posts, and the feed would only list unrendered publication URLs.
+  home: [HTML, headers, redirects, backlinks]
+  section: [HTML]
 imaging:
   resampleFilter: lanczos
   quality: 90

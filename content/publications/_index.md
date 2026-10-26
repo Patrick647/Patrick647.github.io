@@ -3,10 +3,20 @@ title: Publications
 cms_exclude: true
 type: landing
 
-# Bylines already list every author; skip the per-author cards under each paper.
+# Papers have no detail pages: the list links straight to each PDF.
+# "link" (not "never") keeps them in taxonomies, which the collection filters
+# (exclude_publication_type / publication_type) depend on. Bundle PDFs are still published.
+# private keeps the unrendered URLs out of the theme's sitemap and 404 suggestions.
 cascade:
-  params:
-    profile: false
+  - target:
+      kind: page
+    build:
+      render: link
+      list: always
+      publishResources: true
+    params:
+      private: true
+outputs: [HTML]
 
 design:
   spacing: '1.5rem'
