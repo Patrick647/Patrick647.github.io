@@ -3,6 +3,11 @@ title: Publications
 cms_exclude: true
 type: landing
 
+# Bylines already list every author; skip the per-author cards under each paper.
+cascade:
+  params:
+    profile: false
+
 design:
   spacing: '1.5rem'
 

@@ -1,0 +1,275 @@
+{{/* Publication detail page. Based on HugoBlox kit layouts/single.html (blox module 2026-01-24); re-check against the theme after upgrades. */}}
+{{ define "main" }}
+
+{{ $pub_type_csl := "" }}
+{{ $pub_type_display := "" }}
+{{ if .Params.publication_types }}
+  {{ if reflect.IsSlice .Params.publication_types }}
+    {{ $pub_type_csl = index .Params.publication_types 0 }}
+    {{ $pub_type_display = i18n (printf "pub_%s" (strings.Replace $pub_type_csl "-" "_")) | default (strings.Title $pub_type_csl) }}
+  {{ end }}
+{{ end }}
+
+{{/* Page Cover */}}
+{{ partial "components/cover.html" . }}
+
+<div class="mx-auto flex max-w-screen-xl">
+  {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" true) }}
+  {{ partial "components/toc.html" . }}
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      {{ if .Params.show_breadcrumb }}
+      <div class="mb-4">
+        {{ partial "components/breadcrumb.html" . }}
+      </div>
+      {{ end }}
+
+      {{/* Add spacing if cover has overlapping icon */}}
+      {{ $cover := partial "functions/get_cover_image.html" . }}
+      {{ $has_overlap_icon := false }}
+      {{ if $cover }}
+        {{ $icon_config := .Params.cover.icon | default (dict) }}
+        {{ if or $icon_config.name $icon_config.emoji }}
+          {{ $icon_position := $icon_config.position | default "overlap" }}
+          {{ if eq $icon_position "overlap" }}
+            {{ $has_overlap_icon = true }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      <h1 class="{{ if $has_overlap_icon }}mt-12{{ else }}mt-2{{ end }} text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100" data-pagefind-meta="title" data-pagefind-body>
+        {{/* Inline icon before title if specified */}}
+        {{ if $cover }}
+          {{ $icon_config := .Params.cover.icon | default (dict) }}
+          {{ if or $icon_config.name $icon_config.emoji }}
+            {{ $icon_position := $icon_config.position | default "overlap" }}
+            {{ if eq $icon_position "inline" }}
+              <span class="inline-flex items-center gap-3">
+                {{ if $icon_config.emoji }}
+                  <span class="text-4xl">{{ $icon_config.emoji }}</span>
+                {{ else if $icon_config.name }}
+                  <span class="w-10 h-10">
+                    {{ partial "components/icon.html" (dict "name" $icon_config.name "attributes" "class=\"w-full h-full\"") }}
+                  </span>
+                {{ end }}
+                <span>{{- .Title -}}</span>
+              </span>
+            {{ else }}
+              {{- .Title -}}
+            {{ end }}
+          {{ else }}
+            {{- .Title -}}
+          {{ end }}
+        {{ else }}
+          {{- .Title -}}
+        {{ end }}
+      </h1>
+
+      {{ $display_date := .Params.event_start | default .Date }}
+      <div class="mt-4 mb-16">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2">
+        {{- if $display_date | and (not .Params.hide_date) -}}
+        <span class="mr-1">{{- (time $display_date) | time.Format (site.Params.hugoblox.locale.date_format | default ":date_long") -}}</span>
+        {{- if .Params.authors }}<span class="mx-1">·</span>{{ end -}}
+        {{- end -}}
+
+        {{ $notes := .Params.author_notes | default slice }}
+        {{ $has_corresponding := false }}
+        {{ $has_equal := false }}
+        {{ range $notes }}
+          {{ $lc := lower (printf "%v" .) }}
+          {{ if in $lc "corresponding" }}{{ $has_corresponding = true }}{{ end }}
+          {{ if or (in $lc "equal") (in $lc "co-first") }}{{ $has_equal = true }}{{ end }}
+        {{ end }}
+
+        {{ range $i, $slug := .Params.authors }}
+          {{ $profile := partial "functions/get_author_profile" $slug }}
+          {{ if $i }}<span class="mr-1">,</span>{{ end }}
+          <span class="pub-byline-author">
+            {{- $profile.title -}}
+            {{- if lt $i (len $notes) -}}
+              {{- with index $notes $i -}}{{- partial "author_note_marker" . -}}{{- end -}}
+            {{- end -}}
+          </span>
+        {{ end }}
+
+        {{ if ne .Params.reading_time false }}
+        <span class="mx-1">·</span>
+        <span class="mx-1">
+          {{ .ReadingTime }} {{ i18n "minute_read" }}
+        </span>
+        {{ end }}
+        </div>
+
+        {{ if or $has_corresponding $has_equal }}
+        <p class="pub-byline-legend">
+          {{- if $has_corresponding }}* Corresponding author{{ end -}}
+          {{- if and $has_corresponding $has_equal }} · {{ end -}}
+          {{- if $has_equal }}† Co-first author / equal contribution{{ end -}}
+        </p>
+        {{ end }}
+
+        <div class="mt-3">
+          {{ partial "page_links_div.html" . }}
+        </div>
+      </div>
+
+
+
+      {{ $featured := partial "functions/get_featured_image.html" . }}
+      {{/* Safely extract image parameters - handle case where image is not a map */}}
+      {{ $image_params := dict }}
+      {{ if and .Params.image (reflect.IsMap .Params.image) }}
+        {{ $image_params = .Params.image }}
+      {{ end }}
+      {{/* Featured image layout */}}
+      {{ if and $featured (not $image_params.preview_only) }}
+      {{/* Fit image within max size. */}}
+      {{ $image := $featured }}
+
+      {{/* Determine image placement. */}}
+      {{ $placement := $image_params.placement | default 1 }}{{/* Default to full column width. */}}
+      {{/* Configure responsive processing based on placement */}}
+      {{ $image_container := "" }}
+      {{ $responsive_sizes := slice }}
+      {{ $sizes_attr := "" }}
+      {{ if eq $placement 2}}
+        {{ $image_container = "container" }}
+        {{ $responsive_sizes = slice 480 768 1024 1200 1600 }}
+        {{ $sizes_attr = "(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 1200px" }}
+      {{else if eq $placement 3}}
+        {{ $image_container = "container-fluid" }}
+        {{ $responsive_sizes = slice 768 1024 1366 1920 2560 }}
+        {{ $sizes_attr = "(max-width: 768px) 100vw, (max-width: 1366px) 90vw, (max-width: 1920px) 80vw, 2560px" }}
+      {{else}}
+        {{ $image_container = "article-container" }}
+        {{ $responsive_sizes = slice 320 480 640 720 960 }}
+        {{ $sizes_attr = "(max-width: 480px) 100vw, (max-width: 640px) 90vw, (max-width: 720px) 80vw, 720px" }}
+      {{end}}
+      
+      {{/* Process featured image using utility with placement-specific constraints */}}
+      {{ if strings.Contains $featured.MediaType.SubType "svg" }}
+        {{/* SVGs cannot be processed by Hugo (Fit/Fill). Render directly. */}}
+        <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16">
+          <div style="position: relative">
+            <img src="{{ $featured.RelPermalink }}"
+                 data-pagefind-meta="image[src]"
+                 alt="{{ with $image_params.alt_text }}{{.}}{{ end }}"
+                 class="featured-image"
+                 fetchpriority="high">
+            {{ with $image_params.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+          </div>
+        </div>
+      {{ else if ne $featured.MediaType.SubType "gif" }}
+        {{/* Pre-fit image to placement constraints, then apply responsive processing */}}
+        {{ $fitted_image := $featured }}
+        {{ if eq $placement 2}}
+          {{ $fitted_image = $featured.Fit "1200x2500" }}
+        {{else if eq $placement 3}}
+          {{ $fitted_image = $featured.Fit "2560x2560" }}
+        {{else}}
+          {{ $fitted_image = $featured.Fit "720x2500" }}
+        {{end}}
+        
+        {{ $responsive := partial "functions/process_responsive_image.html" (dict 
+            "image" $fitted_image 
+            "mode" "responsive"
+            "sizes" $responsive_sizes
+        ) }}
+        
+        {{/* Featured image - use fitted image dimensions for container, responsive for srcset */}}
+        <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16" style="max-width: {{$fitted_image.Width}}px; max-height: {{$fitted_image.Height}}px;">
+          <div style="position: relative">
+            <img srcset="{{ $responsive.srcset }}"
+                 sizes="{{ $sizes_attr }}"
+                 src="{{ $responsive.fallback.RelPermalink }}" 
+                 data-pagefind-meta="image[src]"
+                 width="{{ $fitted_image.Width }}" 
+                 height="{{ $fitted_image.Height }}" 
+                 alt="{{ with $image_params.alt_text }}{{.}}{{ end }}" 
+                 class="featured-image"
+                 fetchpriority="high">
+            {{ with $image_params.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+          </div>
+        </div>
+      {{ else }}
+        {{/* Handle GIF - apply same placement constraints without responsive processing */}}
+        {{ $image := $featured }}
+        {{ if eq $placement 2}}
+          {{ $image = $featured.Fit "1200x2500" }}
+        {{else if eq $placement 3}}
+          {{ $image = $featured.Fit "2560x2560" }}
+        {{else}}
+          {{ $image = $featured.Fit "720x2500" }}
+        {{end}}
+        <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16" style="max-width: {{$image.Width}}px; max-height: {{$image.Height}}px;">
+          <div style="position: relative">
+            <img src="{{ $image.RelPermalink }}" 
+                 data-pagefind-meta="image[src]"
+                 width="{{ $image.Width }}" 
+                 height="{{ $image.Height }}" 
+                 alt="{{ with $image_params.alt_text }}{{.}}{{ end }}" 
+                 class="featured-image"
+                 fetchpriority="high">
+            {{ with $image_params.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+          </div>
+        </div>
+      {{ end }}
+      {{end}}
+
+      {{/* PUBLICATION METADATA */}}
+      {{ if or $pub_type_display .Params.publication }}
+      <dl class="pub-meta">
+        {{ if $pub_type_display }}
+          <dt>{{ i18n "publication_type" }}</dt>
+          <dd>
+            {{ with first 1 (.GetTerms "publication_types") }}{{ range . }}<a href="{{ .RelPermalink }}">{{ $pub_type_display }}</a>{{ end }}{{ else }}{{ $pub_type_display }}{{ end }}
+          </dd>
+        {{ end }}
+        {{ with .Params.publication }}
+          <dt>{{ i18n "publication" }}</dt>
+          <dd>{{ . | markdownify }}</dd>
+        {{ end }}
+      </dl>
+      {{ end }}
+
+      {{/* Structured abstracts: paragraphs separated by blank lines; a leading "Label:" is set as a run-in heading. */}}
+      {{ with .Params.abstract }}
+      <section class="pub-abstract prose prose-slate lg:prose-lg dark:prose-invert" aria-labelledby="abstract-heading">
+        <h2 id="abstract-heading">{{ i18n "abstract" }}</h2>
+        {{ range split (strings.TrimSpace (replace . "\r\n" "\n")) "\n\n" }}
+          {{ $para := strings.TrimSpace . }}
+          {{ if $para }}
+            {{ $m := findRESubmatch `(?i)^(objectives?|background|aims?|purpose|methods?|results?|conclusions?|significance)\s*[:：]\s*` $para 1 }}
+            {{ if $m }}
+              {{ $match := index $m 0 }}
+              <p><strong class="pub-abstract-label">{{ index $match 1 }}</strong> {{ strings.TrimPrefix (index $match 0) $para | markdownify }}</p>
+            {{ else }}
+              <p>{{ $para | markdownify }}</p>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </section>
+      {{ end }}
+      <div class="prose prose-slate lg:prose-lg dark:prose-invert" data-pagefind-body>
+        {{ with .Section }}
+          <span data-pagefind-filter="type" style="display:none;">{{ . }}</span>
+        {{ end }}
+        {{ with .Params.categories }}
+          <span data-pagefind-filter="category" style="display:none;">{{ index . 0 }}</span>
+        {{ end }}
+        {{ .Content }}
+      </div>
+
+      {{ partial "components/last-edited.html" . }}
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        {{ .Scratch.Set "invert_pager" true }}
+        {{ partial "page_footer" . }}
+      </div>
+
+    </main>
+  </article>
+</div>
+{{ end }}

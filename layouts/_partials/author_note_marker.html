@@ -1,0 +1,15 @@
+{{- /* Input: an author_notes entry. Output: a superscript marker, or nothing. */ -}}
+{{- $note := . -}}
+{{- $lc := lower $note -}}
+{{- $marker := "‡" -}}
+{{- if in $lc "corresponding" -}}
+  {{- $marker = "*" -}}
+{{- else if or (in $lc "equal") (in $lc "co-first") -}}
+  {{- $marker = "†" -}}
+{{- else if eq $lc "first author" -}}
+  {{- /* Byline position already shows first authorship. */ -}}
+  {{- $marker = "" -}}
+{{- end -}}
+{{- with $marker -}}
+  <sup class="author-note-marker" title="{{ $note }}"><span aria-hidden="true">{{ . }}</span><span class="visually-hidden"> ({{ $note }})</span></sup>
+{{- end -}}
