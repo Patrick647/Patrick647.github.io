@@ -60,14 +60,18 @@ education:
       Courses: Physiology, Pathophysiology, Biochemistry, Microbiology, Natural Pharmacochemistry, Medicinal Chemistry, Pharmaceutical Analysis, Pharmacology, Pharmacy.
 
 experience:
-  - role: Clinical Pharmacist & Clinical Trial QA Officer
+  - role: Clinical Pharmacist (Pharmacist-in-Charge)
     org: Affiliated Women's Hospital of Jiangnan University
     start: 2018-07-01
     summary: |
-      Serve as Clinical Trial Quality Assurance Officer at the Drug Clinical Trial Center, ensuring compliance with GCP standards across multiple pharmacogenomic intervention trials.
       Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
 
 professional_service:
+  - role: Committee Member
+    org: 2nd Professional Committee on Pharmaceutical Education and Health Promotion, Jiangsu Pharmaceutical Association
+    start: 2026-05-01
+    summary: |
+      Four-year term (2026–2030).
   - role: Committee Member & Executive Secretary
     org: Pharmaceutical Policy Professional Committee, Wuxi Pharmacists Association
     start: 2024-06-01
@@ -134,10 +138,6 @@ patents:
     type: Utility Patent
     number: "CN212988971U"
     date: "2021-04-01"
-  - title: "Cooling Bottle"
-    type: Utility Patent
-    number: "CN215063055U"
-    date: "2021-12-01"
 
 awards:
   - title: Outstanding Reviewer of the Year (2025)
