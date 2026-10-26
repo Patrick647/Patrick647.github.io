@@ -1,0 +1,16 @@
+{{/* The theme footer stays hidden via custom.css; this is the site's own minimal footer. */}}
+{{ $owner := index site.Data.authors "me" }}
+{{ $labels := dict "at-symbol" "Email" "brands/linkedin" "LinkedIn" "brands/github" "GitHub" "academicons/orcid" "ORCID" }}
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="site-footer-copy">&copy; {{ now.Year }} {{ site.Title }}{{ with $owner.name.alternate }} · {{ . }}{{ end }}</p>
+    {{ with $owner.links }}
+    <nav class="site-footer-links" aria-label="Footer links">
+      {{ range . }}
+        {{ $label := index $labels .icon | default .label }}
+        <a href="{{ .url | safeURL }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ $label }}</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</footer>

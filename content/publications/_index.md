@@ -11,7 +11,7 @@ sections:
     id: published-papers
     content:
       title: Peer-reviewed Publications
-      text: Published journal articles and related scholarly outputs.
+      text: 'Published journal articles and related scholarly outputs.<span class="pub-legend">\* Corresponding author · † Co-first author / equal contribution</span>'
       count: 0
       sort_by: Date
       sort_ascending: false
@@ -31,7 +31,7 @@ sections:
     id: working-papers
     content:
       title: Working Papers
-      text: Manuscripts currently under peer review.
+      text: 'Manuscripts currently under peer review.<span class="pub-legend">\* Corresponding author · † Equal contribution</span>'
       count: 10
       sort_by: Date
       sort_ascending: false

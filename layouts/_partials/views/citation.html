@@ -10,8 +10,7 @@
     <span class="article-metadata li-cite-author">
       {{ partial "page_metadata_authors" $item }}
     </span>
-    ({{- $year -}}).
-    <h3 class="publication-title-heading"><a href="{{ $item.RelPermalink }}"
+    ({{- $year -}}).&nbsp;<h3 class="publication-title-heading"><a href="{{ $item.RelPermalink }}"
        class="publication-title-link">{{ $item.Title }}</a></h3>.
     {{ if $item.Params.publication_short }}
       {{- $item.Params.publication_short | markdownify -}}.
@@ -25,8 +24,7 @@
   <div class="publication-citation">
     <span class="article-metadata li-cite-author">
       {{ partial "page_metadata_authors" $item }}.
-    </span>
-    <h3 class="publication-title-heading"><a href="{{ $item.RelPermalink }}"
+    </span>&nbsp;<h3 class="publication-title-heading"><a href="{{ $item.RelPermalink }}"
        class="publication-title-link">{{ $item.Title }}</a></h3>.
     {{ if $item.Params.publication_short }}
       {{- $item.Params.publication_short | markdownify -}},
