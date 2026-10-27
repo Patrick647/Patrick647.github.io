@@ -204,12 +204,17 @@ button[data-te-collapse-init]:hover {
 }
 
 /* Classic academic CV (cv-classic block) */
+/* The theme gives every landing section 6rem of top padding, which leaves a gap under the navbar. */
+.hbb-section.blox-cv-classic {
+  padding-top: 1.5rem !important;
+}
+
 .cv-classic {
   --cv-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Songti SC", "Noto Serif SC", serif;
-  --cv-date-col: 8.5rem;
+  --cv-date-col: 9.75rem;
   max-width: 56rem;
   margin: 0 auto;
-  padding: 3rem 1.5rem 1rem;
+  padding: 1.5rem 1.5rem 1rem;
   color: rgb(31 41 55);
   line-height: 1.6;
 }
@@ -414,6 +419,14 @@ a.cv-print {
   margin: 0.1rem 0;
 }
 
+.cv-detail-list {
+  margin: 0;
+}
+
+.cv-award-name {
+  font-weight: 600;
+}
+
 .cv-legend {
   margin: -0.25rem 0 0.5rem;
   font-size: 0.8125rem;
@@ -439,7 +452,7 @@ a.cv-print {
 
 @media (max-width: 640px) {
   .cv-classic {
-    padding-top: 2rem;
+    padding-top: 1rem;
   }
 
   .cv-head {

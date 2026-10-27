@@ -64,7 +64,10 @@ experience:
     org: Affiliated Women's Hospital of Jiangnan University
     start: 2018-07-01
     summary: |
-      Previously managed therapeutic drug monitoring services and participated in clinical pharmacogenomics research.
+      - Previously managed therapeutic drug monitoring (TDM) services and participated in clinical pharmacogenomics research.
+      - Contributed to the Drug Package Insert Reform & Visualization Project (2020–2025), producing more than 150 medication instruction videos that reached over 850,000 patients.
+      - Developed a competency evaluation index system for pharmacists in primary healthcare institutions in Wuxi (three-round Delphi consultation, 52 experts).
+      - Developing an intelligent adverse drug reaction (ADR) monitoring and reporting workflow based on clinical instant messaging (rule engine + local large language model).
 
 professional_service:
   - role: Committee Member
@@ -78,6 +81,9 @@ professional_service:
     summary: |
       Appointed in recognition of contributions to drug package insert reform initiatives.
       Coordinate policy meetings and facilitate communication between pharmacy experts and government health departments.
+  - role: Peer Reviewer
+    org: Pharmaceutical and Clinical Research, Jiangsu Pharmaceutical Association
+    start: 2025-01-01
 
 skills:
   - name: Laboratory

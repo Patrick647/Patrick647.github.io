@@ -151,6 +151,21 @@
   </section>
   {{ end }}
 
+  {{ with $data.patents }}
+  <section class="cv-section" aria-labelledby="cv-ip">
+    <h2 id="cv-ip" class="cv-section-title">Patents &amp; Software Copyrights</h2>
+    {{ range sort . "date" "desc" }}
+    <div class="cv-entry cv-entry-compact">
+      <div class="cv-when">{{ with .date }}{{ (time .).Format "2006" }}{{ end }}</div>
+      <p class="cv-what">
+        <span class="cv-entry-title-inline">{{ .title }}</span>
+        {{- "" }}<span class="cv-entry-org-inline">, {{ .type }}{{ with .number }} {{ . }}{{ end }}</span>
+      </p>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
   {{ with $profile.awards }}
   <section class="cv-section" aria-labelledby="cv-awards">
     <h2 id="cv-awards" class="cv-section-title">Honors &amp; Awards</h2>
@@ -159,8 +174,9 @@
       {{ $year := (time .date).Format "2006" }}
       <div class="cv-entry cv-entry-compact{{ if ne $year $prev }} cv-year-start{{ end }}">
         <div class="cv-when">{{ if ne $year $prev }}{{ $year }}{{ end }}</div>
+        {{- $parts := split .title ", " }}
         <p class="cv-what">
-          <span class="cv-entry-title-inline">{{ .title }}</span>
+          <span class="cv-entry-title-inline"><strong class="cv-award-name">{{ index $parts 0 }}</strong>{{ with after 1 $parts }}, {{ delimit . ", " }}{{ end }}</span>
           {{- with .awarder }}<span class="cv-entry-org-inline">, {{ . }}</span>{{ end }}
         </p>
       </div>
@@ -178,21 +194,6 @@
       <p class="cv-what">
         <span class="cv-entry-title-inline">{{ .title }}</span>
         {{- with .awarder }}<span class="cv-entry-org-inline">, {{ . }}</span>{{ end }}
-      </p>
-    </div>
-    {{ end }}
-  </section>
-  {{ end }}
-
-  {{ with $data.patents }}
-  <section class="cv-section" aria-labelledby="cv-ip">
-    <h2 id="cv-ip" class="cv-section-title">Patents &amp; Software Copyrights</h2>
-    {{ range sort . "date" "desc" }}
-    <div class="cv-entry cv-entry-compact">
-      <div class="cv-when">{{ with .date }}{{ (time .).Format "2006" }}{{ end }}</div>
-      <p class="cv-what">
-        <span class="cv-entry-title-inline">{{ .title }}</span>
-        {{- "" }}<span class="cv-entry-org-inline">, {{ .type }}{{ with .number }} {{ . }}{{ end }}</span>
       </p>
     </div>
     {{ end }}

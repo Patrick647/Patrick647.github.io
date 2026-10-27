@@ -1,15 +1,23 @@
-{{- /* Renders a multi-line CV summary: one paragraph per line, a leading "Label:" is emphasised. */ -}}
+{{- /* Renders a multi-line CV summary: one paragraph per line, a leading "Label:" is emphasised, consecutive "- " lines become a bullet list. */ -}}
+{{- $open := false -}}
 <div class="cv-detail">
 {{- range split (strings.TrimSpace (printf "%v" .)) "\n" -}}
   {{- $line := strings.TrimSpace . -}}
   {{- if $line -}}
-    {{- $m := findRESubmatch `^([A-Z][A-Za-z ]{1,24}):\s+` $line 1 -}}
-    {{- if $m -}}
-      {{- $match := index $m 0 -}}
-      <p><span class="cv-label">{{ index $match 1 }}:</span> {{ strings.TrimPrefix (index $match 0) $line | markdownify }}</p>
+    {{- if hasPrefix $line "- " -}}
+      {{- if not $open }}<ul class="cv-list cv-detail-list">{{ $open = true }}{{ end -}}
+      <li>{{ strings.TrimPrefix "- " $line | markdownify }}</li>
     {{- else -}}
-      <p>{{ $line | markdownify }}</p>
+      {{- if $open }}</ul>{{ $open = false }}{{ end -}}
+      {{- $m := findRESubmatch `^([A-Z][A-Za-z ]{1,24}):\s+` $line 1 -}}
+      {{- if $m -}}
+        {{- $match := index $m 0 -}}
+        <p><span class="cv-label">{{ index $match 1 }}:</span> {{ strings.TrimPrefix (index $match 0) $line | markdownify }}</p>
+      {{- else -}}
+        <p>{{ $line | markdownify }}</p>
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
+{{- if $open }}</ul>{{ end -}}
 </div>
