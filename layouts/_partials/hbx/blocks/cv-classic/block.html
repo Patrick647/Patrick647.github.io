@@ -110,6 +110,24 @@
   </section>
   {{ end }}
 
+  {{ with $data.professional_service }}
+  <section class="cv-section" aria-labelledby="cv-service">
+    <h2 id="cv-service" class="cv-section-title">Professional Service</h2>
+    {{ range . }}
+    <div class="cv-entry">
+      <div class="cv-when">
+        {{- with .start }}{{ (time .).Format "2006" }}{{ end }} – {{ with .end }}{{ (time .).Format "2006" }}{{ else }}present{{ end -}}
+      </div>
+      <div class="cv-what">
+        <h3 class="cv-entry-title">{{ .role }}</h3>
+        <p class="cv-entry-org">{{ .org }}</p>
+        {{ with .summary }}{{ partial "cv/detail" . }}{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
   {{ if or $published $working }}
   <section class="cv-section" aria-labelledby="cv-publications">
     <h2 id="cv-publications" class="cv-section-title">Publications</h2>
@@ -147,24 +165,6 @@
         </p>
       </div>
       {{ $prev = $year }}
-    {{ end }}
-  </section>
-  {{ end }}
-
-  {{ with $data.professional_service }}
-  <section class="cv-section" aria-labelledby="cv-service">
-    <h2 id="cv-service" class="cv-section-title">Professional Service</h2>
-    {{ range . }}
-    <div class="cv-entry">
-      <div class="cv-when">
-        {{- with .start }}{{ (time .).Format "2006" }}{{ end }} – {{ with .end }}{{ (time .).Format "2006" }}{{ else }}present{{ end -}}
-      </div>
-      <div class="cv-what">
-        <h3 class="cv-entry-title">{{ .role }}</h3>
-        <p class="cv-entry-org">{{ .org }}</p>
-        {{ with .summary }}{{ partial "cv/detail" . }}{{ end }}
-      </div>
-    </div>
     {{ end }}
   </section>
   {{ end }}
