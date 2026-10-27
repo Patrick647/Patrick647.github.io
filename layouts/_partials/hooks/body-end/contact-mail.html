@@ -1,0 +1,61 @@
+{{/* Mail links: try the visitor's mail app, and always copy the address so visitors without one still get it. */}}
+<div id="contact-toast" class="contact-toast" role="status" aria-live="polite" hidden>
+  {{ partial "functions/get_icon" (dict "name" "hero/check-circle" "attributes" "class='w-5 h-5' aria-hidden='true'") }}
+  <span>Email copied: <strong data-contact-toast-email></strong></span>
+</div>
+<script>
+(() => {
+  const toast = document.getElementById('contact-toast');
+  if (!toast) return;
+  const toastEmail = toast.querySelector('[data-contact-toast-email]');
+  let hideTimer;
+
+  const copy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      const ok = document.execCommand('copy');
+      area.remove();
+      return ok;
+    }
+  };
+
+  const showToast = (email) => {
+    toastEmail.textContent = email;
+    toast.hidden = false;
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => { toast.hidden = true; }, 4000);
+  };
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href^="mailto:"]');
+    if (!link) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const href = link.getAttribute('href');
+    const email = decodeURIComponent(href.slice('mailto:'.length).split('?')[0]);
+    // Copy inside the click so the clipboard permission comes from the user gesture.
+    const copied = copy(email);
+
+    // Browsers cannot report whether a mail app exists; if one opens, this page loses focus.
+    let handedOff = false;
+    const markHandedOff = () => { handedOff = true; };
+    window.addEventListener('blur', markHandedOff, { once: true });
+    document.addEventListener('visibilitychange', markHandedOff, { once: true });
+    window.location.href = href;
+
+    setTimeout(async () => {
+      window.removeEventListener('blur', markHandedOff);
+      document.removeEventListener('visibilitychange', markHandedOff);
+      if (!handedOff && await copied) showToast(email);
+    }, 1000);
+  });
+})();</script>
