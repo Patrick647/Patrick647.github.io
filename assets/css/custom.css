@@ -822,3 +822,84 @@ a.cv-print {
     text-decoration: none !important;
   }
 }
+
+/* Fit the whole homepage introduction into the first laptop screen (~1440x800). */
+@media (min-width: 768px) {
+  #about {
+    padding-top: 0 !important;
+  }
+
+  #about .resume-biography {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  #about .resume-biography > div > .grid {
+    column-gap: 3rem;
+  }
+
+  #about .avatar-wrapper {
+    width: 200px !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  #about .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.5rem;
+  }
+
+  #about h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  #about .md\:col-span-4 > p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  #about .md\:col-span-4 > .flex {
+    padding-top: 0.5rem;
+  }
+
+  #about .bio-main > .prose {
+    max-width: none;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  #about .bio-main > .prose p {
+    margin: 0 0 0.7em;
+  }
+
+  #about .bio-main > .prose p:first-child {
+    margin-top: 0;
+  }
+
+  #about .bio-main > .profile-actions {
+    margin-bottom: 1.5rem;
+  }
+
+  #about .bio-main > .grid {
+    margin-top: 0;
+    gap: 2rem;
+  }
+
+  #about .bio-main h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  #about .bio-main .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.2rem;
+  }
+
+  #about .bio-main .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.5rem;
+  }
+
+  #about .bio-main li,
+  #about .bio-main .space-y-4 p.font-semibold {
+    font-size: 0.95rem;
+  }
+}
