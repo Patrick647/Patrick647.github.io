@@ -722,10 +722,6 @@ a.cv-print {
     justify-content: center;
   }
 
-  #about .profile-actions > a:first-child {
-    grid-column: 1 / -1;
-  }
-
   .site-footer-inner {
     justify-content: center;
     text-align: center;

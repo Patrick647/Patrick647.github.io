@@ -12,13 +12,10 @@ sections:
     content:
       username: me
       buttons:
-        - text: View Publications
-          url: /publications/
-          icon: hero/book-open
-          primary: true
         - text: View CV
           url: /cv/
           icon: hero/document-text
+          primary: true
         - text: Contact
           url: mailto:Dongxu.2.Wang@outlook.com
           icon: hero/envelope
