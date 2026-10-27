@@ -827,11 +827,26 @@ a.cv-print {
 @media (min-width: 768px) {
   #about {
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   #about .resume-biography {
     padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* The theme's own footer is empty here but still carries a 6rem top margin. */
+  body:has(#about) .page-footer > footer {
+    margin-top: 0;
+  }
+
+  body:has(#about) .site-footer {
+    margin-top: 0.75rem;
+  }
+
+  body:has(#about) .site-footer-inner {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
   }
 
   #about .resume-biography > div > .grid {
@@ -864,7 +879,7 @@ a.cv-print {
   #about .bio-main > .prose {
     max-width: none;
     margin-bottom: 1.25rem;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
   }
 
