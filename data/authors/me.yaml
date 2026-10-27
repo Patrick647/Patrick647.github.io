@@ -15,10 +15,11 @@ status:
   icon: "💊"
 role: Informatics Pharmacist | Health Services Researcher
 bio: |
-  I am an informatics pharmacist and health services researcher at Affiliated Women's Hospital of Jiangnan University. My work focuses on pharmacy practice, pharmacist competency, patient-centered medication communication, and medication safety. I am particularly interested in turning needs observed in routine care into practical, measurable improvements for patients and health systems.
+  I am an informatics pharmacist (Pharmacist-in-Charge) and health services researcher at Affiliated Women's Hospital of Jiangnan University, with an MSc in Clinical Pharmacology from King's College London. My work spans pharmacy practice and clinical informatics, with a focus on pharmacist competency, patient-centered medication communication, and medication safety. I am particularly interested in turning needs observed in routine care into practical, measurable improvements for patients and health systems.
 
-  My recent work includes developing a pharmacist competency framework for primary healthcare in Wuxi and contributing to the "Drug Package Insert Reform & Visualization Project" (2020–2025), which produced more than 150 medication instruction videos and reached over 850,000 patients. I also contribute to professional coordination through the Wuxi Pharmacists Association. My research connects pharmacy practice, pharmacy informatics, health communication, and implementation-oriented health services research.
+  My recent work includes a Delphi-based competency evaluation framework for primary healthcare pharmacists in Wuxi, and the "Drug Package Insert Reform & Visualization Project" (2020–2025), which produced more than 150 medication instruction videos and reached over 850,000 patients. I am currently developing an adverse drug reaction (ADR) monitoring and reporting workflow that combines a rule engine with a locally deployed large language model to detect ADRs in clinical instant messaging; two manuscripts on this work are under review.
 
+  I serve on the Professional Committee on Pharmaceutical Education and Health Promotion of the Jiangsu Pharmaceutical Association, as committee member and executive secretary of the Pharmaceutical Policy Professional Committee of the Wuxi Pharmacists Association, and as a peer reviewer for *Pharmaceutical and Clinical Research*.
 affiliations:
   - name: Affiliated Women's Hospital of Jiangnan University
     url: ''
