@@ -823,6 +823,11 @@ a.cv-print {
   }
 }
 
+/* The homepage already shows the same contact links under the portrait. */
+body:has(#about) .site-footer {
+  display: none;
+}
+
 /* Fit the whole homepage introduction into the first laptop screen (~1440x800). */
 @media (min-width: 768px) {
   #about {
@@ -838,15 +843,6 @@ a.cv-print {
   /* The theme's own footer is empty here but still carries a 6rem top margin. */
   body:has(#about) .page-footer > footer {
     margin-top: 0;
-  }
-
-  body:has(#about) .site-footer {
-    margin-top: 0.75rem;
-  }
-
-  body:has(#about) .site-footer-inner {
-    padding-top: 0.875rem;
-    padding-bottom: 0.875rem;
   }
 
   #about .resume-biography > div > .grid {
@@ -879,7 +875,7 @@ a.cv-print {
   #about .bio-main > .prose {
     max-width: none;
     margin-bottom: 1.25rem;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     line-height: 1.6;
   }
 
