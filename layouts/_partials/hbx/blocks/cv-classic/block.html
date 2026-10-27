@@ -48,12 +48,14 @@
     </div>
     <div class="cv-head-aside">
       <div class="cv-actions">
-        <a class="cv-print" href="{{ "uploads/resume.pdf" | relURL }}" download="Wang-Dongxu-CV-zh.pdf" lang="zh-CN">
-          {{ partial "functions/get_icon" (dict "name" "hero/arrow-down-tray" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
+        <a class="cv-print" href="{{ "uploads/resume.pdf" | relURL }}" target="_blank" rel="noopener" lang="zh-CN"
+           data-pdf-viewer data-pdf-title="汪东旭 中文简历" data-pdf-download="Wang-Dongxu-CV-zh.pdf">
+          {{ partial "functions/get_icon" (dict "name" "hero/document-text" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
           中文简历 PDF
         </a>
-        <a class="cv-print" href="{{ "uploads/resume-en.pdf" | relURL }}" download="Wang-Dongxu-CV-en.pdf" lang="en">
-          {{ partial "functions/get_icon" (dict "name" "hero/arrow-down-tray" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
+        <a class="cv-print" href="{{ "uploads/resume-en.pdf" | relURL }}" target="_blank" rel="noopener" lang="en"
+           data-pdf-viewer data-pdf-title="Dongxu Wang – CV" data-pdf-download="Wang-Dongxu-CV-en.pdf">
+          {{ partial "functions/get_icon" (dict "name" "hero/document-text" "attributes" "class='w-4 h-4' aria-hidden='true'") }}
           English CV PDF
         </a>
       </div>

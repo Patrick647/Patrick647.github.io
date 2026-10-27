@@ -69,6 +69,7 @@
     title.textContent = link.dataset.pdfTitle || heading?.textContent.trim() || 'PDF';
     openLink.href = url.href;
     downloadLink.href = url.href;
+    downloadLink.download = link.dataset.pdfDownload || '';
     dialog.classList.add('is-loading');
     frame.src = url.href;
     dialog.showModal();
