@@ -120,9 +120,9 @@ languages:
     label: C1 Proficient
 
 certifications:
-  - title: Licensed Pharmacist
-    awarder: National Medical Products Administration
-    date: "2021-11-01"
+  - title: Pharmacist (Health Professional Qualification)
+    awarder: Ministry of Human Resources and Social Security & National Health Commission
+    date: "2021-04-01"
     icon: hero/identification
   - title: Good Clinical Practice (GCP) Certificate
     awarder: ""
